@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+scriptDir=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+logfile=nixos-switch.log
+commit=$(echo "$@" | grep -- --commit || true)
+verbose=$(echo "$@" | grep -- --verbose || true)
+pushd $scriptDir &>/dev/null
+alejandra .
+git diff -U0 *.nix
+echo "NixOS Rebuilding..."
+git add .
+sudo nixos-rebuild switch --flake "${scriptDir}#default" &>$logfile
+exitCode=$?
+echo "NixOS Rebuild finished with exit code $exitCode"
+if [[ $exitCode -ne 0 ]]; then
+	if [[ -n "$verbose" ]]; then
+		cat $logfile
+	else
+		cat $logfile | grep --color error && false
+	fi
+	exit $exitCode
+fi
+if [[ "$1" == "--commit" ]]; then
+	git commit -m "$(nixos-rebuild list-generations | grep current)"
+else
+	echo "To commit the changes, run '$0 --commit'"
+fi
+popd &>/dev/null
