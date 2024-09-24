@@ -5,6 +5,10 @@ commit=$(echo "$@" | grep -- --commit || true)
 verbose=$(echo "$@" | grep -- --verbose || true)
 pushd $scriptDir &>/dev/null
 alejandra .
+exitCode=$?
+if [[ $exitCode -ne 0 ]]; then
+	exit $exitCode
+fi
 git diff -U0 *.nix
 echo "NixOS Rebuilding..."
 git add .

@@ -11,9 +11,14 @@
     fzf
     gitmoji-cli
     gnome-tweaks
+    google-chrome
     nodejs_22
     rustc
     zed-editor
     zoxide
+  ];
+  fonts.packages = with pkgs; [
+    victor-mono
+    (nerdfonts.override {fonts = ["Meslo"];})
   ];
 }

@@ -12,6 +12,9 @@
     ./packages.nix
   ];
 
+  programs.zsh.enable = true;
+  users.defaultUserShell = pkgs.zsh;
+
   users.users.willsterjohnson = {
     isNormalUser = true;
     description = "Willster Johnson";
