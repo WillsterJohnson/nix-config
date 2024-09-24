@@ -21,6 +21,7 @@
     cat = "bat";
     z = "zed";
     pd = "if [ -z $1 ]; then popd; else pushd $1; fi";
+    nixup = "/etc/nixos/nixup";
   };
   programs.zsh.initExtra = ''
     eval "$(zoxide init zsh --cmd cd)"
@@ -39,6 +40,7 @@
     chp = "cherry-pick";
     a = "add";
     undo-commit = "reset HEAD~";
+    unstage = "reset HEAD --";
   };
   programs.git.userName = "WillsterJohnson";
   programs.git.userEmail = "willster@willsterjohnson.com";

@@ -12,6 +12,7 @@
     gitmoji-cli
     gnome-tweaks
     google-chrome
+    neofetch
     nodejs_22
     rustc
     zed-editor
