@@ -29,3 +29,4 @@ else
 	echo "To commit and push the changes, run '$0 --sync'"
 fi
 popd &>/dev/null
+exec zsh
