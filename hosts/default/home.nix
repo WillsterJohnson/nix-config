@@ -11,6 +11,13 @@
     EDITOR = "zed";
   };
 
+  home.file = {
+    ".homefiles" = {
+      recursive = true;
+      source = ./.homefiles;
+    };
+  };
+
   programs.zsh.enable = true;
   programs.zsh.autosuggestion.enable = true;
   programs.zsh.autosuggestion.strategy = ["completion"];
@@ -25,6 +32,7 @@
   };
   programs.zsh.initExtra = ''
     eval "$(zoxide init zsh --cmd cd)"
+    source ~/.homefiles/imports
   '';
 
   programs.oh-my-posh.enable = true;
