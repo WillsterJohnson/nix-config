@@ -23,9 +23,9 @@ if [[ $exitCode -ne 0 ]]; then
 	fi
 	exit $exitCode
 fi
-if [[ "$1" == "--commit" ]]; then
+if [[ "$1" == "--sync" ]]; then
 	git commit -m "$(nixos-rebuild list-generations | grep current)"
 else
-	echo "To commit the changes, run '$0 --commit'"
+	echo "To commit and push the changes, run '$0 --sync'"
 fi
 popd &>/dev/null
