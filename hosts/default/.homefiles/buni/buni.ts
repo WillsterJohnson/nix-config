@@ -2,15 +2,12 @@
 import { $ } from "bun";
 import fs from "node:fs"; //!
 import path from "node:path"; //!
-import { workspaces } from "./package.json";
-
-main();
 
 const packageMap = {};
 
 async function main() {
 	const foundWorkspaces = new Array<string>();
-	for (const workspace of workspaces.map((workspace) => workspace.replace(/\/\*$/, ""))) {
+	for (const workspace of getWorkspaces().map((workspace) => workspace.replace(/\/\*$/, ""))) {
 		const dirpath = path.resolve(workspace);
 		const subdirs = fs
 			.readdirSync(dirpath)
@@ -31,6 +28,21 @@ async function main() {
 			else await installedLink(dependency, workspace);
 		}
 	}
+}
+
+async function getWorkspaces() {
+	let dir = path.resolve(".");
+	while (true) {
+		const lockfile = path.resolve(dir, "bun.lockb");
+		if (Bun.file(lockfile).exists()) break;
+		const parent = path.resolve(dir, "..");
+		if (parent === dir) throw new Error("No bun.lockb file found in any parent directory");
+		dir = parent;
+	}
+	const packageJson = path.resolve(dir, "package.json");
+	const file = Bun.file(packageJson);
+	const contents = await file.json();
+	return contents.workspaces;
 }
 
 async function getLinkPaths(sourceModuleName: string, project: string) {

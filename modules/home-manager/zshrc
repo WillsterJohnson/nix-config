@@ -1,0 +1,7 @@
+if [ ! -f /bin/zsh ]; then sudo ln -s /run/current-system/sw/bin/zsh /bin/zsh; fi
+if [ ! -f /bin/bash ]; then sudo ln -s /run/current-system/sw/bin/bash /bin/bash; fi
+ls -1 ~/.homefiles | grep -v '\.sh' | while read name; do
+	if [ -d "~/.homefiles/$name" ]; then
+	source "~/.homefiles/$name/$name.sh"
+	fi
+done

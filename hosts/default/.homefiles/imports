@@ -1,8 +1,0 @@
-#!/usr/bin/env zsh
-
-SCRIPT_DIR=${0:a:h}
-function __src() {
-  source $SCRIPT_DIR/$1
-}
-
-__src buni/buni.sh

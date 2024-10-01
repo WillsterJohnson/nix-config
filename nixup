@@ -1,17 +1,50 @@
 #!/usr/bin/env bash
+
+if [[ "$1" == "help" ]]; then
+	echo "Usage: $0 [--commit] [--verbose] [--format]"
+	echo -e "\t--commit\tCommit and push changes after rebuild"
+	echo -e "\t--verbose\tPrint the full output"
+	echo -e "\t--format\tDon't rebuild or commit, only format"
+fi
+
+
+function arg() {
+	local argName=$1; shift
+	echo "$@" | grep -- --$argName || true
+}
+
 scriptDir=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 logfile=nixos-switch.log
-commit=$(echo "$@" | grep -- --commit || true)
-verbose=$(echo "$@" | grep -- --verbose || true)
+commit=$(arg commit $@)
+verbose=$(arg verbose $@)
+format=$(arg format $@)
+shell="zsh"
+if [[ -n "$1" ]]; then
+	shell=$(echo "$1" | grep -v -- " --")
+	if [[ -z "$shell" ]]; then
+		shell="zsh"
+	fi
+fi
+
 pushd $scriptDir &>/dev/null
+
 alejandra .
 exitCode=$?
 if [[ $exitCode -ne 0 ]]; then
 	exit $exitCode
 fi
-git diff -U0 *.nix
-echo "NixOS Rebuilding..."
+
+if [[ -n "$format" ]]; then
+	exit 0
+fi
+
+clear
+git --no-pager diff -U0
+read -p "Press enter to continue..." ________
+
 git add .
+
+echo "NixOS Rebuilding..."
 sudo nixos-rebuild switch --flake "${scriptDir}#default" &>$logfile
 exitCode=$?
 echo "NixOS Rebuild finished with exit code $exitCode"
@@ -23,10 +56,13 @@ if [[ $exitCode -ne 0 ]]; then
 	fi
 	exit $exitCode
 fi
+
 if [[ "$1" == "--sync" ]]; then
 	git commit -m "$(nixos-rebuild list-generations | grep current)"
 else
 	echo "To commit and push the changes, run '$0 --sync'"
 fi
+
 popd &>/dev/null
-exec zsh
+
+exec $shell

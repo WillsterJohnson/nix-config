@@ -7,8 +7,6 @@
   imports = [
     ./hardware-configuration.nix
     inputs.home-manager.nixosModules.default
-    ../../modules/nixos/binbash.nix
-    ./modules.nix
     ./packages.nix
   ];
 
