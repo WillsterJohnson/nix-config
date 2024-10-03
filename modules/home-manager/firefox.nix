@@ -6,8 +6,8 @@
 }: {
   programs.firefox = {
     enable = true;
-    enableGnomeExtensions = true;
-    policies = {};
+    # enableGnomeExtensions = true;
+    # policies = {};
     profiles.default = {
       bookmarks = [
         {
