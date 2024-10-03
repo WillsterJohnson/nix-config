@@ -9,13 +9,13 @@
     enableGnomeExtensions = true;
     policies = {};
     profiles.default = {
-      # bookmarks = [
-      #   {
-      #     url = "https://github.com/WillsterJohnson/nix-config";
-      #     name = "Nix Config";
-      #     tags = ["nixos" "nix"];
-      #   }
-      # ];
+      bookmarks = [
+        {
+          url = "https://github.com/WillsterJohnson/nix-config";
+          name = "Nix Config";
+          tags = ["nixos" "nix"];
+        }
+      ];
       # containers = {
       #   # example = {
       #   #   color = "blue"; # “blue”, “turquoise”, “green”, “yellow”, “orange”, “red”, “pink”, “purple”, “toolbar”
