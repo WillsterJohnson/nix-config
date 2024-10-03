@@ -45,7 +45,7 @@ read -p "Press enter to continue..." ________
 git add .
 
 echo "NixOS Rebuilding..."
-sudo nixos-rebuild switch --flake "${scriptDir}#default" &>$logfile
+sudo nixos-rebuild switch --upgrade --flake "${scriptDir}#default" &>$logfile
 exitCode=$?
 echo "NixOS Rebuild finished with exit code $exitCode"
 if [[ $exitCode -ne 0 ]]; then
@@ -57,10 +57,11 @@ if [[ $exitCode -ne 0 ]]; then
 	exit $exitCode
 fi
 
+git commit -m "$(nixos-rebuild list-generations | grep current)"
 if [[ "$1" == "--sync" ]]; then
-	git commit -m "$(nixos-rebuild list-generations | grep current)"
+	git push
 else
-	echo "To commit and push the changes, run '$0 --sync'"
+	echo "To push the changes, run '$0 --sync'"
 fi
 
 popd &>/dev/null

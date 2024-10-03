@@ -9,6 +9,17 @@
     inputs.home-manager.nixosModules.default
     ./packages.nix
   ];
+  nixpkgs.config.packageOverrides = pkgs: {
+    nur =
+      import (builtins.fetchTarball {
+        # Get the revision by choosing a version from https://github.com/nix-community/NUR/commits/master
+        url = "https://github.com/nix-community/NUR/archive/47d63dcaa78c3b29d0fecc96f07a0103d7a94f1d.tar.gz";
+        # Get the hash by running `nix-prefetch-url --unpack <url>` on the above url
+        sha256 = "1prwiwhj6fjwwmrdg82yzmr0j84vi8z0w2h59brn838ggyq25lfv";
+      }) {
+        inherit pkgs;
+      };
+  };
 
   programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;
@@ -45,8 +56,8 @@
   networking.networkmanager.enable = true;
   nix.settings.experimental-features = ["nix-command" "flakes"];
   nixpkgs.config.allowUnfree = true;
-  programs.firefox.enable = true;
   security.rtkit.enable = true;
+  services.gnome.gnome-browser-connector.enable = true;
   services.printing.enable = true;
   services.pipewire = {
     enable = true;
@@ -63,6 +74,6 @@
     variant = "";
   };
   services.openssh.enable = true;
-  system.stateVersion = "24.05";
+  system.stateVersion = "24.11";
   time.timeZone = "Europe/London";
 }
