@@ -5,6 +5,7 @@
     gnome-tweaks
     neofetch
     nodejs_22
+    shellcheck
     unzip
     zed-editor
   ];

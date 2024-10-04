@@ -7,10 +7,13 @@ if [[ "$1" == "help" ]]; then
 	echo -e "\t--format\tDon't rebuild or commit, only format"
 fi
 
-
 function arg() {
 	local argName=$1; shift
-	echo "$@" | grep -- --$argName || true
+	if [[ "$@" == *"--$argName"* ]]; then
+		echo "--$argName"
+	else
+		echo ""
+	fi
 }
 
 scriptDir=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
