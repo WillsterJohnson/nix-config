@@ -19,9 +19,10 @@ logfile=nixos-switch.log
 commit=$(arg commit $@)
 verbose=$(arg verbose $@)
 format=$(arg format $@)
+
 shell="zsh"
 if [[ -n "$1" ]]; then
-	shell=$(echo "$1" | grep -v -- " --")
+	shell=$(echo "$1" | grep -v "\--")
 	if [[ -z "$shell" ]]; then
 		shell="zsh"
 	fi
