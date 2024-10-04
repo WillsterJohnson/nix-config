@@ -27,9 +27,7 @@ if [[ -n "$1" ]]; then
 	fi
 fi
 
-pushd $scriptDir &>/dev/null
-
-alejandra .
+alejandra $scriptDir
 exitCode=$?
 if [[ $exitCode -ne 0 ]]; then
 	exit $exitCode
