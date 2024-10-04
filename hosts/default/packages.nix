@@ -4,6 +4,8 @@
     gitmoji-cli
     gnome-tweaks
     neofetch
+    nodejs_22
+    unzip
     zed-editor
   ];
   fonts.packages = with pkgs; [

@@ -1,7 +1,57 @@
-if [ ! -f /bin/zsh ]; then sudo ln -s /run/current-system/sw/bin/zsh /bin/zsh; fi
-if [ ! -f /bin/bash ]; then sudo ln -s /run/current-system/sw/bin/bash /bin/bash; fi
+# Append history entries immediately instead of waiting until the shell exits
+setopt incappendhistory
+# Don't display duplicates of lines still in the history list
+setopt histfindnodups
+# Remove superfluous blanks from each command line being added to the history list
+setopt histreduceblanks
+# Verify history expansions before executing them
+setopt histverify
+# Auto correct mistakes
+setopt correct
+# Extended globbing. Allows using regular expressions with *
+setopt extendedglob
+# Case insensitive globbing
+setopt nocaseglob
+# Array expension with parameters
+setopt rcexpandparam
+# Don't warn about running processes when exiting
+setopt nocheckjobs
+# Sort filenames numerically when it makes sense
+setopt numericglobsortI
+# Enable beep
+unsetopt nobeep
+# Immediately append history instead of overwriting
+setopt appendhistory
+# If a new command is a duplicate, do not remove the older one
+unsetopt histignorealldups
+# Allow comments in interactive shells
+setopt interactivecomments
+# Case insensitive tab completion
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+# Colored completion (different colors for dirs/files/etc)
+zstyle ':completion:*' list-colors "''${(s.:.)LS_COLORS}"
+# automatically find new executables in path
+zstyle ':completion:*' rehash true
+# Accept exact matches without ambiguity
+zstyle ':completion:*' accept-exact '*(N)'
+# Enable caching for faster completion
+zstyle ':completion:*' use-cache on
+# Set the cache path for completion
+local CACHE_PATH=$HOME/.config/zsh/completion-cache
+mkdir -p "$(dirname $CACHE_PATH)"
+zstyle ':completion:*' cache-path "$CACHE_PATH"
+# Enable menu-style selection for completion
+zstyle ':completion:*' menu select
+# Don't consider certain characters part of the word
+WORDCHARS=''${WORDCHARS//\/[&.;]}
+
+# Load all homefiles
 ls -1 ~/.homefiles | grep -v '\.sh' | while read name; do
 	if [ -d "~/.homefiles/$name" ]; then
 	source "~/.homefiles/$name/$name.sh"
 	fi
 done
+
+# ensure /bin/zsh and /bin/bash are available
+if [ ! -f /bin/zsh ]; then sudo ln -s $(which zsh) /bin/zsh; fi
+if [ ! -f /bin/bash ]; then sudo ln -s $(which bash) /bin/bash; fi

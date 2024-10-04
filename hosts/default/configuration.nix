@@ -56,6 +56,7 @@
   networking.networkmanager.enable = true;
   nix.settings.experimental-features = ["nix-command" "flakes"];
   nixpkgs.config.allowUnfree = true;
+  programs.firefox.enable = true;
   security.rtkit.enable = true;
   services.gnome.gnome-browser-connector.enable = true;
   services.printing.enable = true;
@@ -74,6 +75,6 @@
     variant = "";
   };
   services.openssh.enable = true;
-  system.stateVersion = "24.11";
+  system.stateVersion = "24.05";
   time.timeZone = "Europe/London";
 }
