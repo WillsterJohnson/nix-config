@@ -46,7 +46,7 @@ function nixup() {
 
 	git add .
 
-	shellrc=../../../../modules/home-manager/${shell}rc
+	shellrc=$(realpath ../../../../modules/home-manager/${shell}rc)
 	echo "Validating $shellrc..."
 	output=$($shell -c "source $shellrc" 2>&1)
 	exitCode=$?
