@@ -81,4 +81,3 @@ function nixup() {
 
 	exec $shell
 }
-nixup
