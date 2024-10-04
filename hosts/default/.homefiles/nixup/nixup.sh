@@ -1,3 +1,4 @@
+local scriptDir=$(realpath "${0:A:h}/../../../..")
 function nixup() {
 	if [[ "$1" == "help" ]]; then
 		echo "Usage: $0 [--commit] [--verbose] [--format]"
@@ -15,7 +16,6 @@ function nixup() {
 		fi
 	}
 
-	scriptDir=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )/../../../..
 	logfile=nixos-switch.log
 	commit=$(arg commit $@)
 	verbose=$(arg verbose $@)

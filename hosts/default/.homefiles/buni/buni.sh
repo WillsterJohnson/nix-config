@@ -1,4 +1,5 @@
 function buni() {
+	SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 	BUN_SUBCOMMAND="i"
 	BUN_ARGS=
 	PKG=
@@ -18,5 +19,5 @@ function buni() {
 	if [ "$PKG" != "" ]; then
 		popd &> /dev/null
 	fi
-	bun ~/.homefiles/buni.ts
+	bun $SCRIPT_DIR/buni.ts
 }
