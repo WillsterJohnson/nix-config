@@ -17,7 +17,7 @@ setopt rcexpandparam
 # Don't warn about running processes when exiting
 setopt nocheckjobs
 # Sort filenames numerically when it makes sense
-setopt numericglobsortI
+setopt numericglobsort
 # Enable beep
 unsetopt nobeep
 # Immediately append history instead of overwriting
