@@ -37,6 +37,15 @@
       };
       containersForce = true;
       extensions = [];
+      settings = [];
+      extraConfig = "";
+      id = 0;
+      isDefault = true;
+      name = "Default";
+      path = "default";
+      search = {
+        default = "google";
+      };
     };
   };
 }

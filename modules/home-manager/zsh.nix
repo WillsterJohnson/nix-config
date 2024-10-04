@@ -8,7 +8,6 @@
       b = "bun";
       c = "clear";
       cat = "bat";
-      nixup = "/etc/nixos/nixup";
       z = "zed";
     };
     initExtra = builtins.readFile ./zshrc;

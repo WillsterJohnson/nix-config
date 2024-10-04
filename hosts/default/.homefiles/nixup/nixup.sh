@@ -15,7 +15,7 @@ function nixup() {
 		fi
 	}
 
-	scriptDir=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+	scriptDir=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )/../../../..
 	logfile=nixos-switch.log
 	commit=$(arg commit $@)
 	verbose=$(arg verbose $@)
@@ -46,7 +46,7 @@ function nixup() {
 
 	git add .
 
-	shellrc=$(realpath ../../../../modules/home-manager/${shell}rc)
+	shellrc=$(realpath $scriptDir/modules/home-manager/${shell}rc)
 	echo "Validating $shellrc..."
 	output=$($shell -c "source $shellrc" 2>&1)
 	exitCode=$?
