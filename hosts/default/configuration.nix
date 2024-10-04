@@ -4,6 +4,11 @@
   inputs,
   ...
 }: {
+  nixpkgs.config.packageOverrides = pkgs: {
+    nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {
+      inherit pkgs;
+    };
+  };
   imports = [
     ./hardware-configuration.nix
     inputs.home-manager.nixosModules.default

@@ -45,13 +45,13 @@ zstyle ':completion:*' menu select
 # Don't consider certain characters part of the word
 WORDCHARS=''${WORDCHARS//\/[&.;]}
 
-# Load all homefiles
-ls -1 ~/.homefiles | grep -v '\.sh' | while read name; do
-	if [ -d "~/.homefiles/$name" ]; then
-	source "~/.homefiles/$name/$name.sh"
-	fi
-done
-
 # ensure /bin/zsh and /bin/bash are available
 if [ ! -f /bin/zsh ]; then sudo ln -s $(which zsh) /bin/zsh; fi
 if [ ! -f /bin/bash ]; then sudo ln -s $(which bash) /bin/bash; fi
+
+# Load all homefiles
+ls -1 ~/.homefiles | grep -v '\.sh' | while read name; do
+	if [ -d "~/.homefiles/$name" ]; then
+		source "~/.homefiles/$name/$name.sh"
+	fi
+done

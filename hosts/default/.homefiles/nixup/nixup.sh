@@ -1,3 +1,4 @@
+function nixup() {
 	if [[ "$1" == "help" ]]; then
 		echo "Usage: $0 [--commit] [--verbose] [--format]"
 		echo -e "\t--commit\tCommit and push changes after rebuild"
@@ -45,9 +46,9 @@
 
 	git add .
 
-	shellrc=modules/shell/${shell}
+	shellrc=../../../../modules/home-manager/${shell}rc
 	echo "Validating $shellrc..."
-	output=$(source "$shellrc" 2>&1)
+	output=$($shell -c "source $shellrc" 2>&1)
 	exitCode=$?
 	if [[ $exitCode -ne 0 ]]; then
 	    echo "Error: $shellrc is invalid"
@@ -79,3 +80,5 @@
 	popd &>/dev/null
 
 	exec $shell
+}
+nixup
