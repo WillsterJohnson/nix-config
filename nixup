@@ -44,8 +44,8 @@ read -p "Press enter to continue..." ________
 
 git add .
 
-shellrc=$(realpath $scriptDir/modules/home-manager/${shell}rc)
 echo "Validating $shellrc..."
+shellrc=$(realpath $scriptDir/modules/home-manager/${shell}rc)
 output=$($shell -c "source $shellrc" 2>&1)
 exitCode=$?
 if [[ $exitCode -ne 0 ]]; then
@@ -54,6 +54,12 @@ if [[ $exitCode -ne 0 ]]; then
     echo -e "$output"
     exit $exitCode
 fi
+
+echo "Updating ..."
+firefoxAddons=$(realpath $scriptDir/modules/home-manager/firefox-addons.json)
+rm -f $firefoxAddons
+addonsJson=$(nix flake show "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons" --json)
+node "console.log(JSON.stringify($addonsJson['x86_64-linux'], null, 2))" > $firefoxAddons
 
 echo "NixOS Rebuilding..."
 sudo nixos-rebuild switch --upgrade --flake "${scriptDir}#default" &>$logfile
