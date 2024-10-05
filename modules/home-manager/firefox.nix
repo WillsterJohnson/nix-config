@@ -17,19 +17,25 @@
           toolbar = true;
           bookmarks = [
             {
-              url = "https://github.com/WillsterJohnson/nix-config";
               name = "Nix Config";
-              tags = ["nixos" "nix"];
-            }
-            {
-              url = "https://search.nixos.org/packages?channel=unstable";
-              name = "Nix Packages";
-              tags = ["nixos" "nix" "packages"];
-            }
-            {
-              url = "https://nix-community.github.io/home-manager/options.xhtml";
-              name = "Home Manager Options";
-              tags = ["nixos" "home-manager" "options"];
+              toolbar = true;
+              bookmarks = [
+                {
+                  url = "https://github.com/WillsterJohnson/nix-config";
+                  name = "Nix Config";
+                  tags = ["nixos" "nix"];
+                }
+                {
+                  url = "https://search.nixos.org/packages?channel=unstable";
+                  name = "Nix Packages";
+                  tags = ["nixos" "nix" "packages"];
+                }
+                {
+                  url = "https://nix-community.github.io/home-manager/options.xhtml";
+                  name = "Home Manager Options";
+                  tags = ["nixos" "home-manager" "options"];
+                }
+              ];
             }
           ];
         }
