@@ -29,8 +29,9 @@
       EDITOR = "nano";
     };
     file = {
-      ".homefiles" = {
+      homefiles = {
         recursive = true;
+        target = ".homefiles";
         source = ./.homefiles;
       };
     };

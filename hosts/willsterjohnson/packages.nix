@@ -1,13 +1,12 @@
 {pkgs, ...}: {
   environment.systemPackages = with pkgs; [
-    alejandra
-    gitmoji-cli
-    gnome-tweaks
-    neofetch
-    nodejs_22
-    shellcheck
-    unzip
-    warp-terminal
+    atool # work with various files
+    alejandra # format nix code
+    gitmoji-cli # better git commit
+    gnome-tweaks # gnome tweaks
+    nodejs_22 # required for zed-editor due to temporary bug
+    shellcheck # required for shell script support in zed-editor
+    starship # shell prompt
     zed-editor
   ];
   fonts.packages = with pkgs; [
