@@ -3,11 +3,18 @@
   pkgs,
   ...
 }: {
-  home.file."firefox-gnome-theme" = {
+  home.file."catppuccin-mocha-mauve" = {
     target = ".mozilla/firefox/default/extensions/catppuccin-mocha-mauve.xpi";
     source = builtins.fetchurl {
       url = "https://github.com/catppuccin/firefox/releases/download/old/catppuccin_mocha_mauve.xpi";
       sha256 = "1gkv12034d2dbbvr2fmxbqifmgmfv0lh58my1gmkcvfpxrap6ad5";
+    };
+  };
+  home.file."firefox-gnome-theme" = {
+    target = ".mozilla/firefox/default/chrome/firefox-gnome-theme";
+    source = fetchTarball {
+      url = "https://github.com/rafaelmardojai/firefox-gnome-theme/archive/master.tar.gz";
+      sha256 = "1qxxnmv3718hcp7f8k4wlwd9j7wwnzadrrvhlwmr0kbr8kyv9zwx";
     };
   };
   programs.firefox = {
@@ -58,6 +65,14 @@
       isDefault = true;
       name = "Default";
       path = "default";
+      settings = {
+        "extensions.activeThemeID" = "firefox-compact-dark@mozilla.org";
+
+        # For Firefox GNOME theme:
+        "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+        "browser.tabs.drawInTitlebar" = true;
+        "svg.context-properties.content.enabled" = true;
+      };
     };
   };
 }
