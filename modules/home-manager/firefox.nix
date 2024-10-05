@@ -73,6 +73,10 @@
         "browser.tabs.drawInTitlebar" = true;
         "svg.context-properties.content.enabled" = true;
       };
+      userChrome = ''
+        @import "firefox-gnome-theme/userChrome.css";
+        @import "firefox-gnome-theme/theme/colors/dark.css";
+      '';
     };
   };
 }
