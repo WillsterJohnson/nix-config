@@ -12,6 +12,7 @@
     nur = {
       url = "github:nix-community/nur";
     };
+    nixos-hardware = {url = "github:NixOS/nixos-hardware/master";};
   };
 
   outputs = {
@@ -27,6 +28,7 @@
       modules = [
         ./hosts/willsterjohnson/configuration.nix
         inputs.home-manager.nixosModules.default
+        inputs.nixos-hardware.nixosModules.framework-16-7040-amd
       ];
     };
   };
