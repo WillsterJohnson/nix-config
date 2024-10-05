@@ -1,4 +1,8 @@
-{inputs, ...}: {
+{
+  inputs,
+  pkgs,
+  ...
+}: {
   programs.firefox = {
     enable = true;
     enableGnomeExtensions = true;
@@ -37,7 +41,12 @@
         };
       };
       containersForce = true;
-      extensions = [];
+      extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+        catppuccin-gh-file-explorer
+        enhancer-for-youtube
+        honey
+        ublock-origin
+      ];
       extraConfig = "";
       id = 0;
       isDefault = true;
