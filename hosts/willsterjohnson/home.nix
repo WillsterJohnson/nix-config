@@ -13,7 +13,6 @@
     ../../modules/home-manager/zoxide.nix
     ../../modules/home-manager/zsh.nix
   ];
-
   nixpkgs = {
     overlays = [
       inputs.nur.overlay
@@ -22,16 +21,13 @@
       allowUnfree = true;
     };
   };
-
   home = {
     username = "willsterjohnson";
     homeDirectory = "/home/willsterjohnson";
     stateVersion = "24.05";
-
     sessionVariables = {
       EDITOR = "nano";
     };
-
     file = {
       ".homefiles" = {
         recursive = true;
