@@ -45,6 +45,7 @@
         catppuccin-gh-file-explorer
         enhancer-for-youtube
         honey
+        tree-style-tab
         ublock-origin
       ];
       extraConfig = "";
