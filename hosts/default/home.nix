@@ -3,7 +3,6 @@
   imports = [
     ../../modules/home-manager/bat.nix
     ../../modules/home-manager/bun.nix
-    ../../modules/home-manager/chromium.nix
     ../../modules/home-manager/firefox.nix
     ../../modules/home-manager/fzf.nix
     ../../modules/home-manager/git.nix
