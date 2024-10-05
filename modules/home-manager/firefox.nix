@@ -59,10 +59,7 @@
       isDefault = true;
       name = "Default";
       path = "default";
-      userChrome = ''
-      '';
-      userContent = ''
-      '';
+      userChrome = builtins.readFile ./firefox.userChrome.css;
       settings = {};
     };
   };
