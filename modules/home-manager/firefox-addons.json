@@ -421,7 +421,7 @@
   },
   "deutsch-de-language-pack": {
     "description": "Firefox Language Pack for Deutsch (de) – German",
-    "name": "deutsch-de-language-pack-132.0.20241002.112648",
+    "name": "deutsch-de-language-pack-132.0.20241004.91740",
     "type": "derivation"
   },
   "df-youtube": {
@@ -671,7 +671,7 @@
   },
   "french-language-pack": {
     "description": "Firefox Language Pack for Français (fr) – French",
-    "name": "french-language-pack-132.0.20241002.112648",
+    "name": "french-language-pack-132.0.20241004.91740",
     "type": "derivation"
   },
   "furiganaize": {
@@ -686,7 +686,7 @@
   },
   "gaidhlig-language-pack": {
     "description": "Firefox Language Pack for Gàidhlig (gd) – Scottish Gaelic",
-    "name": "gaidhlig-language-pack-132.0.20241002.112648",
+    "name": "gaidhlig-language-pack-132.0.20241004.91740",
     "type": "derivation"
   },
   "gaoptout": {
@@ -750,8 +750,8 @@
     "type": "derivation"
   },
   "gopass-bridge": {
-    "description": "Gopass Bridge allows searching and inserting login credentials from the gopass password manager ( <a rel=\"nofollow\" href=\"https://prod.outgoing.prod.webservices.mozgcp.net/v1/fa484fa7cde64c1be04f689a80902fdf34bfe274b8675213f619c3a13e6606ab/https%3A//www.gopass.pw/\">https://www.gopass.pw/</a> ).",
-    "name": "gopass-bridge-0.9.0",
+    "description": "Gopass Bridge allows searching, inserting and managing login credentials from the gopass password manager.",
+    "name": "gopass-bridge-1.0.0",
     "type": "derivation"
   },
   "grammarly": {
@@ -841,7 +841,7 @@
   },
   "i2p-in-private-browsing": {
     "description": "Uses Container Tabs to set up a browser to use I2P conveniently and safely by setting up an I2P-powered Private Browsing mode, inspired by the similar feature in Brave. Requires an I2P router on the host system.",
-    "name": "i2p-in-private-browsing-2.6.0",
+    "name": "i2p-in-private-browsing-2.7.0",
     "type": "derivation"
   },
   "iina-open-in-mpv": {
@@ -926,7 +926,7 @@
   },
   "kagi-search": {
     "description": "A simple helper extension for setting Kagi as a default search engine, and automatically logging in to Kagi in private browsing windows.",
-    "name": "kagi-search-0.7.1",
+    "name": "kagi-search-0.7.2",
     "type": "derivation"
   },
   "keepa": {
@@ -1586,7 +1586,7 @@
   },
   "scots-language-pack": {
     "description": "Firefox Language Pack for Scots (sco)",
-    "name": "scots-language-pack-132.0.20241002.112648",
+    "name": "scots-language-pack-132.0.20241004.91740",
     "type": "derivation"
   },
   "screenshot-capture-annotate": {

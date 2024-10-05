@@ -20,6 +20,8 @@ commit=$(arg commit $@)
 verbose=$(arg verbose $@)
 format=$(arg format $@)
 
+pushd $scriptDir &>/dev/null
+
 shell="zsh"
 if [[ -n "$1" ]]; then
 	shell=$(echo "$1" | grep -v "\--")
