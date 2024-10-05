@@ -58,9 +58,13 @@ fi
 echo "Updating ..."
 firefoxAddons=$(realpath $scriptDir/modules/home-manager/firefox-addons.json)
 rm -f $firefoxAddons
-addonsJson=$(nix flake show "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons" --json 2>/dev/null)
-addonsJson="${addonsJson//$'\n'/\\n}"
-echo "console.log(JSON.stringify(${addonsJson}['x86_64-linux'], null, 2))" | node > $firefoxAddons
+nix flake show "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons" --json 2>/dev/null > $firefoxAddons
+echo "const fs = import('fs');\
+fs.writeFileSync($firefoxAddons, JSON.stringify(\
+	JSON.parse(fs.readFileSync($firefoxAddons, 'utf8')).packages['x86_64-linux']\
+	null,\
+	2\
+));" | node
 
 echo "NixOS Rebuilding..."
 sudo nixos-rebuild switch --upgrade --flake "${scriptDir}#default" &>$logfile
