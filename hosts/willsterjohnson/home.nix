@@ -9,7 +9,6 @@
     ../../modules/home-manager/lsd.nix
     ../../modules/home-manager/oh-my-posh.nix
     ../../modules/home-manager/ssh.nix
-    ../../modules/home-manager/thefuck.nix
     ../../modules/home-manager/zoxide.nix
     ../../modules/home-manager/zsh.nix
   ];

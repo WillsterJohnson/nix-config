@@ -4,8 +4,9 @@
     alejandra # format nix code
     gitmoji-cli # better git commit
     gnome-tweaks # gnome tweaks
-    nodejs_22 # required for zed-editor due to temporary bug
-    shellcheck # required for shell script support in zed-editor
+    nodejs_22 # required for 'zed-editor' due to temporary bug
+    shellcheck # required for shell script support in 'zed-editor'
+    unzip # required for 'atool'
     zed-editor # text editor
   ];
   fonts.packages = with pkgs; [
