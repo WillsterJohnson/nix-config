@@ -57,7 +57,9 @@
   networking.networkmanager.enable = true;
   nix.settings.experimental-features = ["nix-command" "flakes"];
   nixpkgs.config.allowUnfree = true;
-  security.rtkit.enable = true;
+  services.fprintd.enable = true;
+  services.fprintd.tod.enable = true;
+  services.fprintd.tod.driver = pkgs.libfprint-2-tod1-vfs0090;
   services.gnome.gnome-browser-connector.enable = true;
   services.printing.enable = true;
   services.pipewire = {
@@ -67,6 +69,7 @@
     pulse.enable = true;
     jack.enable = true;
   };
+  security.rtkit.enable = true;
   services.xserver.enable = true;
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
