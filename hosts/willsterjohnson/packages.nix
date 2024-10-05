@@ -7,6 +7,7 @@
     nodejs_22
     shellcheck
     unzip
+    warp-terminal
     zed-editor
   ];
   fonts.packages = with pkgs; [
