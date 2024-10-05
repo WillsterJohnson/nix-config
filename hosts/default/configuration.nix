@@ -57,7 +57,6 @@
   networking.networkmanager.enable = true;
   nix.settings.experimental-features = ["nix-command" "flakes"];
   nixpkgs.config.allowUnfree = true;
-  programs.firefox.enable = true;
   security.rtkit.enable = true;
   services.gnome.gnome-browser-connector.enable = true;
   services.printing.enable = true;

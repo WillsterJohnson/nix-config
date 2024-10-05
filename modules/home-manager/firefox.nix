@@ -59,9 +59,6 @@
       isDefault = true;
       name = "Default";
       path = "default";
-      search = {
-        default = "google";
-      };
       userChrome = ''
       '';
       userContent = ''
