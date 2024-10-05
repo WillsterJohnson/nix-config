@@ -37,6 +37,11 @@
               name = "Home Manager Options";
               tags = ["nixos" "home-manager" "options"];
             }
+            {
+              url = "https://github.com/NixOS/nixos-artwork";
+              name = "NixOS Artwork";
+              tags = ["nixos" "artwork"];
+            }
           ];
         }
       ];

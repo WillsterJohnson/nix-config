@@ -84,6 +84,7 @@ echo "Updating Firefox addons listing..."
 firefoxAddons=$(realpath $scriptDir/modules/home-manager/firefox-addons.json)
 rm -f $firefoxAddons
 nix flake show "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons" --json 2>/dev/null > $firefoxAddons
+# TODO: do this without node
 echo "const fs = require('node:fs');\
 fs.writeFileSync('$firefoxAddons', JSON.stringify(\
 	JSON.parse(fs.readFileSync('$firefoxAddons', 'utf8')).packages['x86_64-linux'],\
