@@ -58,7 +58,7 @@ fi
 echo "Updating ..."
 firefoxAddons=$(realpath $scriptDir/modules/home-manager/firefox-addons.json)
 rm -f $firefoxAddons
-addonsJson=$(nix flake show "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons" --json)
+addonsJson=$(nix flake show "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons" --json 2>/dev/null)
 node "console.log(JSON.stringify($addonsJson['x86_64-linux'], null, 2))" > $firefoxAddons
 
 echo "NixOS Rebuilding..."
