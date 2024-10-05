@@ -1,8 +1,4 @@
-{
-  inputs,
-  lib,
-  ...
-}: {
+{inputs, ...}: {
   # https://nix-community.github.io/home-manager/options.xhtml
   imports = [
     ../../modules/home-manager/bat.nix

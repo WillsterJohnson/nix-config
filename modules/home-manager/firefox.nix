@@ -5,7 +5,6 @@
 }: {
   programs.firefox = {
     enable = true;
-    enableGnomeExtensions = true;
     # https://mozilla.github.io/policy-templates/
     policies = {
     };
@@ -48,13 +47,10 @@
         tree-style-tab
         ublock-origin
       ];
-      extraConfig = "";
       id = 0;
       isDefault = true;
       name = "Default";
       path = "default";
-      userChrome = builtins.readFile ./firefox.userChrome.css;
-      settings = {};
     };
   };
 }
