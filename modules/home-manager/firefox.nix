@@ -3,13 +3,6 @@
   pkgs,
   ...
 }: {
-  home.file."catppuccin-mocha-mauve" = {
-    target = ".mozilla/firefox/default/extensions/catppuccin-mocha-mauve.xpi";
-    source = builtins.fetchurl {
-      url = "https://github.com/catppuccin/firefox/releases/download/old/catppuccin_mocha_mauve.xpi";
-      sha256 = "1gkv12034d2dbbvr2fmxbqifmgmfv0lh58my1gmkcvfpxrap6ad5";
-    };
-  };
   home.file."firefox-gnome-theme" = {
     target = ".mozilla/firefox/default/chrome/firefox-gnome-theme";
     source = fetchTarball {
