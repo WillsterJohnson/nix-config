@@ -1,49 +1,72 @@
-if [[ "$1" == "help" ]]; then
-	echo "Usage: $0 [--commit] [--verbose] [--format]"
-	echo -e "\t--commit\tCommit and push changes after rebuild"
-	echo -e "\t--verbose\tPrint the full output"
-	echo -e "\t--format\tDon't rebuild or commit, only format"
-fi
-
-function arg() {
-	local argName=$1; shift
-	if [[ "$@" == *"--$argName"* ]]; then
-		echo "--$argName"
-	else
-		echo ""
-	fi
-}
+#!/usr/bin/env bash
 
 scriptDir=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
-logfile=nixos-switch.log
-commit=$(arg commit $@)
-verbose=$(arg verbose $@)
-format=$(arg format $@)
-
 pushd $scriptDir &>/dev/null
+logfile=nixos-switch.log
 
+# Function to display help message
+display_help() {
+	echo "Usage: $0 [OPTIONS]"
+	echo "Options:"
+	echo "  --verbose             Enable verbose output"
+	echo "  --format              Format only (no rebuild)"
+	echo "  --sync                Sync changes after rebuild"
+	echo "  --shell <shell>       Specify shell (default: zsh)"
+	echo "  --help                Display this help message"
+}
+
+# Initialize variables
+verbose=
+format=
+sync=
 shell="zsh"
-if [[ -n "$1" ]]; then
-	shell=$(echo "$1" | grep -v "\--")
-	if [[ -z "$shell" ]]; then
-		shell="zsh"
-	fi
-fi
+
+# Parse command line arguments
+while [[ $# -gt 0 ]]; do
+	case $1 in
+		--verbose)
+			verbose="--verbose"
+			shift
+			;;
+		--format)
+			format="--format"
+			shift
+			;;
+		--sync)
+			sync="--sync"
+			shift
+			;;
+		--shell)
+			if [[ -n $2 ]]; then
+				shell=$2
+				shift 2
+			else
+				echo "Error: --shell requires an argument" >&2
+				exit 1
+			fi
+			;;
+		--help)
+			display_help
+			exit 0
+			;;
+		*)
+			echo "Error: Unknown option: $1" >&2
+			exit 1
+			;;
+	esac
+done
 
 alejandra $scriptDir
 exitCode=$?
 if [[ $exitCode -ne 0 ]]; then
 	exit $exitCode
 fi
-
 if [[ -n "$format" ]]; then
 	exit 0
 fi
 
-clear
 git --no-pager diff -U0
 read -p "Press enter to continue..." ________
-
 git add .
 
 echo "Validating $shellrc..."
@@ -51,22 +74,22 @@ shellrc=$(realpath $scriptDir/modules/home-manager/${shell}rc)
 output=$($shell -c "source $shellrc" 2>&1)
 exitCode=$?
 if [[ $exitCode -ne 0 ]]; then
-    echo "Error: $shellrc is invalid"
-    echo "Output:"
-    echo -e "$output"
-    exit $exitCode
+	echo "Error: $shellrc is invalid"
+	echo "Output:"
+	echo -e "$output"
+	exit $exitCode
 fi
 
-echo "Updating ..."
+echo "Updating Firefox addons listing..."
 firefoxAddons=$(realpath $scriptDir/modules/home-manager/firefox-addons.json)
 rm -f $firefoxAddons
 nix flake show "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons" --json 2>/dev/null > $firefoxAddons
 echo "const fs = require('node:fs');\
 fs.writeFileSync('$firefoxAddons', JSON.stringify(\
 	JSON.parse(fs.readFileSync('$firefoxAddons', 'utf8')).packages['x86_64-linux'],\
-	null,\
-	2\
-));" | node
+		null,\
+		2\
+	));" | node
 
 echo "NixOS Rebuilding..."
 sudo nixos-rebuild switch --upgrade --flake "${scriptDir}#default" &>$logfile
@@ -82,7 +105,7 @@ if [[ $exitCode -ne 0 ]]; then
 fi
 
 git commit -m "$(nixos-rebuild list-generations | grep current)"
-if [[ "$1" == "--sync" ]]; then
+if [[ "$sync" == "--sync" ]]; then
 	git push
 else
 	echo "To push the changes, run '$0 --sync'"

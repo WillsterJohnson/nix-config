@@ -25,7 +25,7 @@
         inherit inputs;
       };
       modules = [
-        ./hosts/default/configuration.nix
+        ./hosts/willsterjohnson/configuration.nix
         inputs.home-manager.nixosModules.default
       ];
     };
