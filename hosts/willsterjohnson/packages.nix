@@ -6,7 +6,6 @@
     gnome-tweaks # gnome tweaks
     nodejs_22 # required for zed-editor due to temporary bug
     shellcheck # required for shell script support in zed-editor
-    starship # shell prompt
     zed-editor # text editor
   ];
   fonts.packages = with pkgs; [

@@ -51,6 +51,3 @@ if [ ! -f /bin/bash ]; then sudo ln -s $(which bash) /bin/bash; fi
 
 # load all homefiles
 ls -1 ~/.homefiles | grep -v '\.sh' | while read name; do source ~/.homefiles/$name/$name.sh; done
-
-# load starship
-eval "$(starship init zsh)"
