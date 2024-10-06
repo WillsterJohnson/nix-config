@@ -1,0 +1,7 @@
+{
+	"promptDelete": false,
+	"showLineNumber": true,
+	"useMarkdownLinks": true,
+	"showUnsupportedFiles": true,
+	"userIgnoreFilters": [".git"]
+}

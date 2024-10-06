@@ -1,0 +1,55 @@
+{
+	"command-palette:open": [
+		{
+			"modifiers": ["Mod", "Shift"],
+			"key": "P"
+		}
+	],
+	"editor:add-cursor-above": [
+		{
+			"modifiers": ["Alt", "Shift"],
+			"key": "ArrowUp"
+		}
+	],
+	"editor:add-cursor-below": [
+		{
+			"modifiers": ["Alt", "Shift"],
+			"key": "ArrowDown"
+		}
+	],
+	"workspace:close-window": [],
+	"workspace:previous-tab": [
+		{
+			"modifiers": ["Ctrl"],
+			"key": "PageUp"
+		}
+	],
+	"workspace:next-tab": [
+		{
+			"modifiers": ["Ctrl"],
+			"key": "PageDown"
+		}
+	],
+	"editor:swap-line-down": [
+		{
+			"modifiers": ["Alt"],
+			"key": "ArrowUp"
+		}
+	],
+	"editor:swap-line-up": [
+		{
+			"modifiers": ["Alt"],
+			"key": "ArrowDown"
+		}
+	],
+	"editor:open-link-in-new-window": [],
+	"editor:open-link-in-new-split": [],
+	"markdown:toggle-preview": [],
+	"editor:toggle-strikethrough": [
+		{
+			"modifiers": ["Mod"],
+			"key": "K"
+		}
+	],
+	"editor:insert-link": []
+}

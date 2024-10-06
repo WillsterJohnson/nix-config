@@ -7,8 +7,13 @@ function mkvault() {
 		vaultDir=$(__resolvePath $vaultDir)
 		if [ -d $vaultDir ]; then echo "Vault directory already exists"
 		else
-			mkdir -p "$vaultDir"
-			cp -r "$SCRIPT_DIR/template" "$vaultDir"
+			mkdir -p "$vaultDir" &>/dev/null
+			cp -r "$SCRIPT_DIR/template" "$vaultDir" &>/dev/null
+			pushd "$vaultDir" &>/dev/null
+			git init &>/dev/null
+			git add . &>/dev/null
+			git commit -m "Initial commit" &>/dev/null
+			popd &>/dev/null
 			echo "Vault created successfully in $vaultDir"
 			obsidian "$vaultDir" &>/dev/null &
 		fi
