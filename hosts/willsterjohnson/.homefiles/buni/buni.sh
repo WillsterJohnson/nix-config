@@ -1,4 +1,4 @@
-SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+SCRIPT_DIR="${0:A:h}"
 function buni() {
 	echo $SCRIPT_DIR
 	exit
