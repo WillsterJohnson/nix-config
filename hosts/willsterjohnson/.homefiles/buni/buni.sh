@@ -1,4 +1,4 @@
-SCRIPT_DIR="${0:A:h}"
+local SCRIPT_DIR="${0:A:h}"
 function buni() {
 	echo $SCRIPT_DIR
 	exit
