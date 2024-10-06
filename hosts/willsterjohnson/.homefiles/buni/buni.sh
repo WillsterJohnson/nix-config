@@ -1,4 +1,5 @@
-local SCRIPT_DIR="${0:A:h}"
+BUNI_SOURCE_ARGS=$@
+
 function buni() {
 	echo $SCRIPT_DIR
 	exit
