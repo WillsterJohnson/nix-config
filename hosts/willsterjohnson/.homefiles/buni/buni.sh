@@ -1,7 +1,4 @@
-# this script is `source`d by the `.zshrc` file
-# let's grab the script's directory
-SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
-
+local SCRIPT_DIR=$0
 function buni() {
 	echo $SCRIPT_DIR
 	exit
