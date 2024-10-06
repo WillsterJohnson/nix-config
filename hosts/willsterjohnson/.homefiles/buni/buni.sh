@@ -1,5 +1,5 @@
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 function buni() {
-	SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 	echo $SCRIPT_DIR
 	exit
 	BUN_SUBCOMMAND="i"
