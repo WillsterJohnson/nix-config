@@ -12,7 +12,9 @@
     nur = {
       url = "github:nix-community/nur";
     };
-    nixos-hardware = {url = "github:NixOS/nixos-hardware/master";};
+    nixos-hardware = {
+      url = "github:NixOS/nixos-hardware/master";
+    };
   };
 
   outputs = {
