@@ -51,6 +51,6 @@ if [ ! -f /bin/bash ]; then sudo ln -s $(which bash) /bin/bash; fi
 
 # load all homefiles
 ls -1 $HOME/.homefiles | grep -v '\.sh' | while read name; do
-	target=$HOME/.homefiles/$name/$name.sh
-	source $target $target
+	target="$HOME/.homefiles/$name"
+	source "$target/$name.sh" $target
 done

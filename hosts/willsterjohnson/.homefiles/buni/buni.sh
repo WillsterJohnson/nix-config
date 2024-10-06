@@ -1,7 +1,5 @@
 local SCRIPT_DIR=$0
 function buni() {
-	echo $SCRIPT_DIR
-	exit
 	BUN_SUBCOMMAND="i"
 	BUN_ARGS=
 	PKG=
@@ -21,5 +19,5 @@ function buni() {
 	if [ "$PKG" != "" ]; then
 		popd &> /dev/null
 	fi
-	bun $SCRIPT_DIR/buni.ts
+	bun "$SCRIPT_DIR/buni.ts"
 }

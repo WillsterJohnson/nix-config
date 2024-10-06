@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  lib,
+  ...
+}: {
   programs.zsh = {
     enable = true;
     autosuggestion.enable = true;
@@ -20,6 +24,7 @@
       b = "bun";
       c = "clear";
       cat = "bat";
+      ll = lib.mkForce "ls -lA --group-directories-first --git";
       nixup = "/etc/nixos/nixup";
       nix-config = "z /etc/nixos";
       z = "zed";
