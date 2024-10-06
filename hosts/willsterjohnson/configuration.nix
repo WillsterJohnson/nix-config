@@ -43,6 +43,7 @@
         };
     };
   };
+  services.fwupd.enable = true;
   services.gnome.gnome-browser-connector.enable = true;
   services.printing.enable = true;
   services.pipewire = {
