@@ -2,15 +2,21 @@ import { $ } from 'bun'
 import { join } from 'node:path'
 import { Cli } from '../.lib/cli/cli'
 
+const argv = Bun.argv.slice(2)
 const obsidianHome = join(Bun.env.HOME!, '.config', 'obsidian')
 const obsidianJsonPath = join(obsidianHome, 'obsidian.json')
-const vaultsPath = join(Bun.env.HOME!, 'Vaults')
+const vaultsPath = argv.shift()!
 
 new Cli('vault', {
 	list: {
 		args: {},
 		description: 'List vaults',
-		positional: [],
+		positional: [
+			{
+				name: 'search',
+				description: 'Search query',
+			},
+		],
 		async action() {
 			const data = (await Bun.file(obsidianJsonPath).json()) as { vaults: { [uuid: string]: { path: string } } }
 			if (!Object.keys(data.vaults).length) return console.log('No vaults')
@@ -65,4 +71,4 @@ new Cli('vault', {
 			await this.run(['open', '--vault', uuid])
 		},
 	},
-}).run(Bun.argv.slice(2))
+}).run()
