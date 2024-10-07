@@ -1,5 +1,5 @@
 local SCRIPT_DIR=$1
 
-function mkvault() {
+function vault() {
 	bun run "$SCRIPT_DIR/vault.ts" $@
 }
