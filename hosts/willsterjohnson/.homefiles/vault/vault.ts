@@ -6,7 +6,6 @@ const obsidianHome = join(Bun.env.HOME!, '.config', 'obsidian')
 const obsidianJsonPath = join(obsidianHome, 'obsidian.json')
 const vaultsPath = join(Bun.env.HOME!, 'Vaults')
 
-console.log(Bun.argv.slice(3))
 new Cli('vault', {
 	list: {
 		args: {},
@@ -66,4 +65,4 @@ new Cli('vault', {
 			await this.run(['open', '--vault', uuid])
 		},
 	},
-}).run(Bun.argv.slice(3))
+}).run(Bun.argv.slice(2))

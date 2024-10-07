@@ -62,7 +62,7 @@ export class Cli {
 			}
 			parsedPositional.push(positionalValue)
 		}
-		const parsedArgs = {}
+		const parsedArgs: Record<string, string | number | boolean | null> = {}
 		while (argv.length) {
 			let argName = argv.shift()
 			if (!argName) break
