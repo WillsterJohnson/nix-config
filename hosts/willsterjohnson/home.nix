@@ -33,6 +33,11 @@
         target = ".homefiles";
         source = ./.homefiles;
       };
+      fonts = {
+        recursive = true;
+        target = ".fonts";
+        source = ./.fonts;
+      };
     };
   };
   programs.home-manager.enable = true;

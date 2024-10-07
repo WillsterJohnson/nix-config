@@ -50,7 +50,9 @@ if [ ! -f /bin/zsh ]; then sudo ln -s $(which zsh) /bin/zsh; fi
 if [ ! -f /bin/bash ]; then sudo ln -s $(which bash) /bin/bash; fi
 
 # load all homefiles
-ls -1 $HOME/.homefiles | grep -v '\.sh' | while read name; do
+ls -1 $HOME/.homefiles | while read name; do
 	target="$HOME/.homefiles/$name"
+	if [ ! -d "$target" ]; then continue; fi
+	if [[ $name == .* ]]; then continue; fi
 	source "$target/$name.sh" $target
 done

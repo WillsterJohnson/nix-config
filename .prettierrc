@@ -1,0 +1,9 @@
+{
+	"$schema": "https://json.schemastore.org/prettierrc",
+	"arrowParens": "avoid",
+	"experimentalTernaries": true,
+	"printWidth": 120,
+	"semi": false,
+	"singleQuote": true,
+	"useTabs": true
+}

@@ -1,4 +1,5 @@
-local SCRIPT_DIR=$0
+local SCRIPT_DIR=$1
+
 function buni() {
 	BUN_SUBCOMMAND="i"
 	BUN_ARGS=
