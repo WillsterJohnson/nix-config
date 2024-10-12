@@ -44,6 +44,7 @@ new Cli('vault', {
 		async action(_, named) {
 			if ('vault' in named) named.vault = join(vaultsPath, named.vault as string)
 			const params = Object.entries(named)
+				.filter(([_, value]) => !!value)
 				.map(([key, value]) => `${key}=${value}`)
 				.join('&')
 			await $`obsidian "obsidian://open?${params}" &>/dev/null`
