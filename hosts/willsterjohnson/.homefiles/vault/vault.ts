@@ -71,4 +71,4 @@ new Cli('vault', {
 			await this.run(['open', '--vault', uuid])
 		},
 	},
-}).run()
+}).run(Bun.argv.slice(2))
