@@ -1,15 +1,19 @@
-import { type Awaitable, Result } from '../utilites'
+import { Option } from '../util/Option'
+import { Result } from '../util/Result'
+import { type Awaitable } from '../utilites'
 
-type CliArgType = ['boolean', boolean] | ['string', string] | ['number', number]
+type CliArgType = { boolean: boolean } | { string: string } | { number: number }
+type CliArgTypeName<T extends CliArgType> = keyof T
+type CliArgTypeValue<T extends CliArgType> = T[CliArgTypeName<T>]
 
 interface CliArgSpec<ArgType extends CliArgType = CliArgType> {
 	description: string
-	defaultValue: ArgType[1] | null
-	type: ArgType[0]
+	defaultValue: CliArgTypeValue<CliArgType> | null
+	type: CliArgTypeName<ArgType>
 	required?: boolean
 }
 
-type ArgSpecType<T extends CliArgSpec> = T extends CliArgSpec<infer ArgType> ? ArgType[1] : never
+type ArgSpecType<T extends CliArgSpec> = T extends CliArgSpec<infer ArgType> ? CliArgTypeValue<ArgType> : never
 
 type CommandArgs = { [fullName: string]: CliArgSpec }
 
@@ -40,9 +44,23 @@ export class Cli {
 		const command = this.commandSchema[commandName]
 		const args = this.parseArgs(command, argv)
 		if (args.isOk()) {
-			const { positional, named } = args.ok().unwrap()
+			const { positional, named } = args.ok()
 			await command.action.apply(this, [positional, named])
-		} else this.helpCommand(commandName)
+		} else {
+			console.error(args.err())
+			this.helpCommand(commandName)
+		}
+
+		const opt = Option.Some(1) as Option<number>
+		if (opt.isSome()) {
+			console.log(opt.unwrap())
+		} else {
+			console.log(opt)
+		}
+		const res = Result.Ok(1) as Result<number, Error>
+		if (res.isOk()) {
+			console.log(res.ok())
+		}
 	}
 
 	private parseArgs<T extends CommandArgs>(
@@ -100,7 +118,6 @@ export class Cli {
 	}
 
 	private help(errorMessage?: string) {
-		console.log(new Error())
 		if (errorMessage) console.error(errorMessage)
 		console.log()
 		console.log(`Usage: ${this.cliName} <command> [args]`)
@@ -113,7 +130,6 @@ export class Cli {
 	}
 
 	private helpCommand(commandName: string) {
-		console.log(new Error())
 		const command = this.commandSchema[commandName]
 		console.log()
 		console.log(`Usage: ${this.cliName} ${commandName} ${this.params(command)}`)
