@@ -100,6 +100,7 @@ export class Cli {
 	}
 
 	private help(errorMessage?: string) {
+		console.log(new Error())
 		if (errorMessage) console.error(errorMessage)
 		console.log()
 		console.log(`Usage: ${this.cliName} <command> [args]`)
@@ -112,6 +113,7 @@ export class Cli {
 	}
 
 	private helpCommand(commandName: string) {
+		console.log(new Error())
 		const command = this.commandSchema[commandName]
 		console.log()
 		console.log(`Usage: ${this.cliName} ${commandName} ${this.params(command)}`)
