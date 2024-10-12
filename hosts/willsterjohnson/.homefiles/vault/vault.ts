@@ -1,5 +1,5 @@
 import { $ } from 'bun'
-import { join } from 'node:path'
+import { join, sep } from 'node:path'
 import { Cli } from '../.lib/cli/cli'
 
 const argv = Bun.argv.slice(2)
@@ -20,8 +20,9 @@ new Cli('vault', {
 		async action() {
 			const data = (await Bun.file(obsidianJsonPath).json()) as { vaults: { [uuid: string]: { path: string } } }
 			if (!Object.keys(data.vaults).length) return console.log('No vaults')
-			const table: Record<string, { uuid: string }> = {}
-			for (const [uuid, { path }] of Object.entries(data.vaults)) table[path] = { uuid }
+			const table: Record<string, Record<string, string>> = {}
+			for (const [uuid, { path }] of Object.entries(data.vaults))
+				table[path] = { uuid, name: path.split(sep).pop()! }
 			console.table(table)
 		},
 	},
