@@ -30,8 +30,12 @@ new Cli('vault', {
 			vault: {
 				type: 'string',
 				defaultValue: null,
-				description: 'Vault to open - either a uuid or name (see `vault list`)',
-				required: true,
+				description: 'Vault to open - a uuid (see "vault list"). Takes priority over "name"',
+			},
+			name: {
+				type: 'string',
+				defaultValue: null,
+				description: 'Vault to open - a path (see "vault list")',
 			},
 			file: {
 				type: 'string',
@@ -42,8 +46,14 @@ new Cli('vault', {
 		description: 'Open a vault',
 		positional: [],
 		async action(_, named) {
-			if ('vault' in named) named.vault = join(vaultsPath, named.vault as string)
-			const params = Object.entries(named)
+			const paramMap = {
+				vault:
+					'vault' in named ? named.vault
+					: 'name' in named ? join(vaultsPath, named.vault as string)
+					: null,
+				file: named.file,
+			}
+			const params = Object.entries(paramMap)
 				.filter(([_, value]) => !!value)
 				.map(([key, value]) => `${key}=${value}`)
 				.join('&')
