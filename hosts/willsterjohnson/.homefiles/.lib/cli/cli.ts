@@ -33,6 +33,7 @@ export class Cli {
 	) {}
 
 	public async run(argv: string[]) {
+		console.log(argv)
 		const commandName = argv.shift()
 		if (!commandName) return this.help('Missing command name')
 		if (!(commandName in this.commandSchema)) return this.help(`Unrecognized command: ${commandName}`)
