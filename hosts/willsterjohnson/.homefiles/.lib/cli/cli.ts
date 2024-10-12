@@ -1,4 +1,3 @@
-import { Option } from '../util/Option'
 import { Result } from '../util/Result'
 import { type Awaitable } from '../utilites'
 
@@ -37,7 +36,6 @@ export class Cli {
 	) {}
 
 	public async run(argv: string[]) {
-		console.log(argv)
 		const commandName = argv.shift()
 		if (!commandName) return this.help('Missing command name')
 		if (!(commandName in this.commandSchema)) return this.help(`Unrecognized command: ${commandName}`)
@@ -49,17 +47,6 @@ export class Cli {
 		} else {
 			console.error(args.err())
 			this.helpCommand(commandName)
-		}
-
-		const opt = Option.Some(1) as Option<number>
-		if (opt.isSome()) {
-			console.log(opt.unwrap())
-		} else {
-			console.log(opt)
-		}
-		const res = Result.Ok(1) as Result<number, Error>
-		if (res.isOk()) {
-			console.log(res.ok())
 		}
 	}
 
