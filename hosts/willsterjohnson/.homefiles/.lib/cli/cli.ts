@@ -74,8 +74,7 @@ export class Cli {
 			else if (shouldBeOptional)
 				return Result.Err(`Required argument ${positionalSpec.name} after optional argument`)
 			const positionalValue = argv.shift()
-			if (!positionalValue) return Result.Err(`Missing positional argument: ${positionalSpec.name}`)
-			if (positionalValue.startsWith('--')) {
+			if (!positionalValue || positionalValue.startsWith('--')) {
 				if (shouldBeOptional) break
 				return Result.Err(`Missing positional argument: ${positionalSpec.name}`)
 			}
