@@ -20,7 +20,8 @@ new Cli('vault', {
 		async action() {
 			const data = (await Bun.file(obsidianJsonPath).json()) as { vaults: { [uuid: string]: { path: string } } }
 			if (!Object.keys(data.vaults).length) return console.log('No vaults')
-			for (const [uuid, { path }] of Object.entries(data.vaults)) console.log(`\t${uuid}\t${path}`)
+			const table = Object.entries(data.vaults).map(([uuid, { path }]) => ({ uuid, path }))
+			console.table(table)
 		},
 	},
 	open: {

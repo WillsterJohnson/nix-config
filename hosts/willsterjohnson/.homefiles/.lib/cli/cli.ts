@@ -1,18 +1,16 @@
 import { Result } from '../util/Result'
-import { type Awaitable } from '../utilites'
+import { type Awaitable } from '../util/types'
 
-type CliArgType = { boolean: boolean } | { string: string } | { number: number }
-type CliArgTypeName<T extends CliArgType> = keyof T
-type CliArgTypeValue<T extends CliArgType> = T[CliArgTypeName<T>]
+type CliArgType = ['boolean', boolean] | ['string', string] | ['number', number]
 
 interface CliArgSpec<ArgType extends CliArgType = CliArgType> {
 	description: string
-	defaultValue: CliArgTypeValue<CliArgType> | null
-	type: CliArgTypeName<ArgType>
+	defaultValue: ArgType[1] | null
+	type: ArgType[0]
 	required?: boolean
 }
 
-type ArgSpecType<T extends CliArgSpec> = T extends CliArgSpec<infer ArgType> ? CliArgTypeValue<ArgType> : never
+type ArgSpecType<T extends CliArgSpec> = T extends CliArgSpec<infer ArgType> ? ArgType[1] : never
 
 type CommandArgs = { [fullName: string]: CliArgSpec }
 
