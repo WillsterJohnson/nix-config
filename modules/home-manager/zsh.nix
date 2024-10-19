@@ -7,7 +7,11 @@
     enable = true;
     autosuggestion.enable = true;
     autosuggestion.strategy = ["completion"];
-    initExtra = builtins.readFile ./zshrc;
+    initExtra =
+      builtins.readFile ./zshrc
+      + ''
+        LD_LIBRARY_PATH = "${pkgs.stdenv.cc.cc.lib}/lib";
+      '';
     plugins = [
       {
         name = "zsh-nix-shell";
