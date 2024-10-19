@@ -57,4 +57,4 @@ ls -1 $HOME/.homefiles | while read name; do
 	source "$target/$name.sh" $target
 done
 
-deno completions zsh
+eval $(deno completions zsh)
