@@ -21,3 +21,11 @@ export type MaybeArray<Item, Clause extends boolean> = Clause extends true ? Ite
 export type Awaitable<T> = T | Promise<T>
 
 export type Constructor<T = unknown> = new (...args: any[]) => T
+
+export type JsonSerializable =
+	| string
+	| number
+	| boolean
+	| null
+	| JsonSerializable[]
+	| { [key: string]: JsonSerializable }

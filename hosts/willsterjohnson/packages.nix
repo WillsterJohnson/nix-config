@@ -3,6 +3,7 @@
     atool # work with various files
     alejandra # format nix code
     bazecor # proprietary keyboard layout editor
+    deno # typescript runtime
     gitmoji-cli # better git commit
     gnome-tweaks # gnome tweaks
     nodejs_22 # required for 'zed-editor' due to temporary bug

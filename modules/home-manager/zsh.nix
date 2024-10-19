@@ -26,7 +26,7 @@
       cat = "bat";
       ll = lib.mkForce "ls -lA --group-directories-first --git";
       nixup = "/etc/nixos/nixup";
-      nix-config = "z /etc/nixos";
+      nixedit = "z /etc/nixos";
       z = "zed";
     };
     syntaxHighlighting.enable = true;
