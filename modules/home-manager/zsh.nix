@@ -10,7 +10,7 @@
     initExtra =
       builtins.readFile ./zshrc
       + ''
-        LD_LIBRARY_PATH = "${pkgs.stdenv.cc.cc.lib}/lib";
+        export LD_LIBRARY_PATH="${pkgs.stdenv.cc.cc.lib}/lib";
       '';
     plugins = [
       {
