@@ -56,3 +56,5 @@ ls -1 $HOME/.homefiles | while read name; do
 	if [[ $name == .* ]]; then continue; fi
 	source "$target/$name.sh" $target
 done
+
+deno completions zsh
