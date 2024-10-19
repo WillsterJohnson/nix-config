@@ -7,11 +7,11 @@
     enable = true;
     autosuggestion.enable = true;
     autosuggestion.strategy = ["completion"];
-    initExtra =
-      builtins.readFile ./zshrc
-      + ''
-        export LD_LIBRARY_PATH="${pkgs.stdenv.cc.cc.lib}/lib";
-      '';
+    envExtra = ''
+      export PATH="/home/willsterjohnson/.deno/bin:$PATH"
+      export LD_LIBRARY_PATH="${pkgs.stdenv.cc.cc.lib}/lib"
+    '';
+    initExtra = builtins.readFile ./zshrc;
     plugins = [
       {
         name = "zsh-nix-shell";
