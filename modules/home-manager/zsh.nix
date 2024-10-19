@@ -23,6 +23,7 @@
     shellAliases = {
       b = "bun";
       c = "clear";
+      cl = "clear ; ll";
       cat = "bat";
       ll = lib.mkForce "ls -lA --group-directories-first --git";
       nixup = "/etc/nixos/nixup";
