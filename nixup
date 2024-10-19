@@ -93,7 +93,17 @@ fs.writeFileSync('$firefoxAddons', JSON.stringify(\
 	));" | node
 
 echo "NixOS Rebuilding..."
-sudo nixos-rebuild switch --upgrade --verbose --flake "${scriptDir}#default" &>$logfile
+
+last_line=""
+sudo nixos-rebuild switch --upgrade --verbose --flake "${scriptDir}#default" 2>&1 | \
+	while IFS= read -r line; do
+		[ -n "$last_line" ] && printf "\033[1A\033[K"
+		echo "$line" >> "$logfile"
+		echo "$line"
+		last_line="$line"
+	done
+
+
 exitCode=$?
 echo "NixOS Rebuild finished with exit code $exitCode"
 if [[ $exitCode -ne 0 ]]; then
