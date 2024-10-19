@@ -22,8 +22,7 @@
     ];
     shellAliases = {
       b = "bun";
-      c = "clear";
-      cl = "clear ; echo \"$(echo $prompt | sed 's/%{//g; s/%}//g')\" ; ll";
+      c = "clear ; echo \"$(echo $prompt | sed 's/%{//g; s/%}//g')\" ; ll";
       cat = "bat";
       ll = lib.mkForce "ls -lA --group-directories-first --git";
       nixup = "/etc/nixos/nixup";
