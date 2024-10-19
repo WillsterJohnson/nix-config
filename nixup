@@ -102,9 +102,9 @@ sudo nixos-rebuild switch --upgrade --verbose --flake "${scriptDir}#default" 2>&
 		echo "$line" >> "$logfile"
 		echo "$line"
 	done
-# [ -n "$last_line" ] && printf "\033[1A\033[K"
-
 exitCode=$?
+[ -n "$last_line" ] && printf "\033[1A\033[K"
+
 echo "NixOS Rebuild finished with exit code $exitCode"
 if [[ $exitCode -ne 0 ]]; then
 	if [[ -n "$verbose" ]]; then
