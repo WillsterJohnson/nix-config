@@ -1,3 +1,4 @@
 nixos-switch.log
 modules/home-manager/firefox-addons.json
 node_modules
+*.pid

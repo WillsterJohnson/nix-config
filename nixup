@@ -18,7 +18,7 @@ runHourly() {
 	fi
 }
 
-# Function to display help message
+# help
 displayHelp() {
 	echo "Usage: $0 [OPTIONS]"
 	echo "Options:"
@@ -69,6 +69,11 @@ while [[ $# -gt 0 ]]; do
 			;;
 	esac
 done
+shellrc=$(realpath $scriptDir/modules/home-manager/${shell}rc)
+if [[ ! -f $shellrc ]]; then
+	echo "Error: RC file for shell '$shell' not found at $shellrc" >&2
+	exit 1
+fi
 
 # Formatter
 alejandra $scriptDir
@@ -87,13 +92,12 @@ git add .
 
 # Validate shellrc
 echo "Validating $shellrc..."
-shellrc=$(realpath $scriptDir/modules/home-manager/${shell}rc)
 output=$($shell -c "source $shellrc" 2>&1)
 exitCode=$?
 if [[ $exitCode -ne 0 ]]; then
-	echo "Error: $shellrc is invalid"
-	echo "Output:"
-	echo -e "$output"
+	echo "Error: $shellrc is invalid" >&2
+	echo "Output:" >&2
+	echo -e "$output" >&2
 	exit $exitCode
 fi
 
@@ -116,18 +120,9 @@ runHourly "firefox-addons.pid" "Firefox addons update" "\
 	nix flake show \"gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons\" --json 2>/dev/null > $firefoxAddons
 	echo \"$nodeScript\" | node"
 
-# Try start garbage collection
-pidFile=nix-collect-garbage.pid
-if [ -f "$pidFile" ]; then
-	if ! ps -p "$(cat "$pidFile")" > /dev/null 2>&1; then
-	if [ $(stat -c %Y "$pidFile") -gt $(date -d '1 hour ago' +%s) ]; then
-			olderThan="30d"
-			sudo nix-collect-garbage --delete-older-than $olderThan &>/dev/null &
-			echo $! > "$pidFile"
-			echo "Started a garbage collection ($olderThan) in the background"
-		fi
-	fi
-fi
+# Nix garbage collection
+olderThan="30d"
+runHourly "nid-collect-garbage.pid" "Nix garbage collection ($olderThan)" "sudo nix-collect-garbage --delete-older-than $olderThan"
 
 # Run nixos-rebuild
 lineNumber=0
@@ -148,11 +143,11 @@ sudo nixos-rebuild switch --upgrade --verbose --flake "${scriptDir}#default" 2>&
 exitCode=$?
 [ -n "$prevLine" ] && printf "\033[1A\033[K"
 if [[ $exitCode -ne 0 ]]; then
-	echo "\033[0;31mNixOS Rebuild failed with exit code $exitCode\033[0m"
+	echo "\033[0;31mNixOS Rebuild failed with exit code $exitCode\033[0m" >&2
 	if [[ -n "$verbose" ]]; then
-		cat $logfile
+		cat $logfile >&2
 	else
-		cat $logfile | grep --color error
+		cat $logfile | grep --color error >&2
 	fi
 	exit $exitCode
 else
