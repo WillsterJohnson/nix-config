@@ -9,7 +9,7 @@ logfile=nixos-switch.log
 # $3: command to run
 runHourly() {
 	if [ ! -f "$1" ]; then touch "$1"; fi
-	if [ $(stat -c %Y "$1") -gt $(date -d '1 hour ago' +%s) ]; then
+	if [ $(stat -c %Y "$1") -lt $(date -d '1 hour ago' +%s) ]; then
 		if ! ps -p "$(cat "$1")" &>/dev/null; then
 			$3 &>/dev/null &
 			echo $! > "$1"
