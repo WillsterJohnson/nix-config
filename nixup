@@ -4,6 +4,20 @@ scriptDir=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 pushd $scriptDir &>/dev/null
 logfile=nixos-switch.log
 
+# $1: pid file path
+# $2: description
+# $3: command to run
+runHourly() {
+	if [ ! -f "$1" ]; then touch "$1"; fi
+	if [ $(stat -c %Y "$1") -gt $(date -d '1 hour ago' +%s) ]; then
+		if ! ps -p "$(cat "$1")" &>/dev/null; then
+			$3 &>/dev/null &
+			echo $! > "$1"
+			echo "Started $2 in the background"
+		fi
+	fi
+}
+
 # Function to display help message
 displayHelp() {
 	echo "Usage: $0 [OPTIONS]"
@@ -84,17 +98,23 @@ if [[ $exitCode -ne 0 ]]; then
 fi
 
 # Update firefox addons
-echo "Updating Firefox addons listing..."
 firefoxAddons=$(realpath $scriptDir/modules/home-manager/firefox-addons.json)
-rm -f $firefoxAddons
-nix flake show "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons" --json 2>/dev/null > $firefoxAddons
 # TODO: do this without node
-echo "const fs = require('node:fs');\
-fs.writeFileSync('$firefoxAddons', JSON.stringify(\
-	JSON.parse(fs.readFileSync('$firefoxAddons', 'utf8')).packages['x86_64-linux'],\
+nodeScript="\
+const fs = require('node:fs');\
+fs.writeFileSync(\
+	'$firefoxAddons',\
+	JSON.stringify(\
+		JSON.parse(fs.readFileSync('$firefoxAddons', 'utf8'))\
+			.packages['x86_64-linux'],\
 		null,\
 		2\
-	));" | node
+	)\
+);"
+runHourly "firefox-addons.pid" "Firefox addons update" "\
+	rm -f $firefoxAddons
+	nix flake show \"gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons\" --json 2>/dev/null > $firefoxAddons
+	echo \"$nodeScript\" | node"
 
 # Try start garbage collection
 pidFile=nix-collect-garbage.pid
@@ -132,7 +152,7 @@ if [[ $exitCode -ne 0 ]]; then
 	if [[ -n "$verbose" ]]; then
 		cat $logfile
 	else
-		cat $logfile | grep --color error && false
+		cat $logfile | grep --color error
 	fi
 	exit $exitCode
 else
