@@ -39,8 +39,16 @@ displayHelp() {
 	echo "  --format              Format only (no rebuild)"
 	echo "  --sync                Sync changes after rebuild"
 	echo "  --shell <shell>       Specify shell (default: zsh)"
+	echo "  --bcwt                Build, even with a Clean Working Tree"
 	echo "  --help                Display this help message"
 }
+
+# Ignore clean working tree
+if [[ -z `echo "$@" | grep -- "--bcwt"` ]] && [[ -z `git status --porcelain` ]]; then
+	echo "Working tree is clean - nothing to build!"
+	echo "Use --bcwt to build anyway"
+	exit 0
+fi
 
 # Initialize variables
 verbose=
@@ -62,6 +70,7 @@ while [[ $# -gt 0 ]]; do
 			if [[ ! -f $shellrc ]]; then exit `excho "Error: RC file for shell '$shell' not found at $shellrc"`; fi
 			;;
 		--help) exit `displayHelp` ;;
+		--bcwt) shift ;;
 		*) exit `excho "Error: Unknown option: $1"` ;;
 	esac
 done
