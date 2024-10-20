@@ -104,7 +104,7 @@ sudo nixos-rebuild switch --upgrade --verbose --flake "${scriptDir}#default" 2>&
 		last_line="$line"
 		echo "$line" >> "$logfile"
 		echo "$line"
-		if [[ "$line" == "warning: error(s) occurred while switching to the new configuration" ]]; then
+		if [[ "$line" == *"warning: error(s) occurred while switching to the new configuration"* ]]; then
 			has_errors=true
 		fi
 	done
