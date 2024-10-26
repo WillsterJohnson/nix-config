@@ -55,7 +55,6 @@ verbose=
 format=
 sync=
 shell="zsh"
-shellrc=`abspathrel "modules/home-manager/${shell}rc"`
 
 # Parse command line arguments
 while [[ $# -gt 0 ]]; do
@@ -66,8 +65,6 @@ while [[ $# -gt 0 ]]; do
 		--shell)
 			if [[ -n $2 ]]; then shell=$2 ; shift 2
 			else exit `excho "Error: --shell requires an argument"`; fi
-			shellrc=`abspathrel "modules/home-manager/${shell}rc"`
-			if [[ ! -f $shellrc ]]; then exit `excho "Error: RC file for shell '$shell' not found at $shellrc"`; fi
 			;;
 		--help) exit `displayHelp` ;;
 		--bcwt) shift ;;
@@ -85,30 +82,6 @@ if [[ -n "$format" ]]; then exit 0; fi
 git --no-pager diff -U0
 read -p "Press enter to continue..." _
 git add .
-
-# Validate shellrc
-echo "Validating $shellrc..."
-output=`$shell -c "source $shellrc" 2>&1`
-if [[ $? -ne 0 ]]; then exit `excho -e "Error: $shellrc is invalid\nOutput:\n$output"`; fi
-
-# Update firefox addons
-firefoxAddons=`abspathrel "modules/home-manager/firefox-addons.json"`
-# TODO: do this without node
-nodeScript="\
-const fs = require('node:fs');\
-fs.writeFileSync(\
-	'$firefoxAddons',\
-	JSON.stringify(\
-		JSON.parse(fs.readFileSync('$firefoxAddons', 'utf8'))\
-			.packages['x86_64-linux'],\
-		null,\
-		2\
-	)\
-);"
-runHourly "firefox-addons.pid" "Firefox addons update" "\
-	rm -f $firefoxAddons
-	nix flake show \"gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons\" --json 2>/dev/null > $firefoxAddons
-	echo \"$nodeScript\" | node"
 
 # Nix garbage collection
 olderThan="30d"

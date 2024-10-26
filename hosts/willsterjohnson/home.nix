@@ -1,16 +1,16 @@
 {inputs, ...}: {
   # https://nix-community.github.io/home-manager/options.xhtml
   imports = [
-    ../../modules/home-manager/bat.nix
-    ../../modules/home-manager/bun.nix
-    ../../modules/home-manager/firefox.nix
-    ../../modules/home-manager/fzf.nix
-    ../../modules/home-manager/git.nix
-    ../../modules/home-manager/lsd.nix
-    ../../modules/home-manager/oh-my-posh.nix
-    ../../modules/home-manager/ssh.nix
-    ../../modules/home-manager/zoxide.nix
-    ../../modules/home-manager/zsh.nix
+    ./programs/home-manager/bat.nix
+    ./programs/home-manager/bun.nix
+    ./programs/home-manager/firefox.nix
+    ./programs/home-manager/fzf.nix
+    ./programs/home-manager/git.nix
+    ./programs/home-manager/lsd.nix
+    ./programs/home-manager/oh-my-posh.nix
+    ./programs/home-manager/ssh.nix
+    ./programs/home-manager/zoxide.nix
+    ./programs/home-manager/zsh.nix
   ];
   nixpkgs = {
     overlays = [

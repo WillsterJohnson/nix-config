@@ -58,7 +58,3 @@ ls -1 $HOME/.homefiles | while read name; do
 done
 
 eval $(deno completions zsh)
-
-if ! which zed &> /dev/null; then
-	alias zed="zeditor"
-fi
