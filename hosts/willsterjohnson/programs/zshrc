@@ -58,3 +58,11 @@ ls -1 $HOME/.homefiles | while read name; do
 done
 
 eval $(deno completions zsh)
+
+betterdiscordctl install &>/dev/null
+betterDiscordPlugins=$HOME/.config/BetterDiscord/plugins
+unlink $betterDiscordPlugins || rm -rf $betterDiscordPlugins
+ln -s $HOME/.files/BetterDiscord/plugins $betterDiscordPlugins
+betterDiscordThemes=$HOME/.config/BetterDiscord/themes
+unlink $betterDiscordThemes || rm -rf $betterDiscordThemes
+ln -s $HOME/.files/BetterDiscord/themes $betterDiscordThemes
