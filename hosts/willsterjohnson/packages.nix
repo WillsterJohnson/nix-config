@@ -9,6 +9,7 @@
     bazecor # proprietary keyboard layout editor
     betterdiscordctl # better discord controller
     catppuccin-cursors.mochaLavender # mouse cursor theme
+    discord # dicord app
     deno # typescript runtime
     gitmoji-cli # better git commit
     gnome-tweaks # gnome tweaks
