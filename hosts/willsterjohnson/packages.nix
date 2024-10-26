@@ -7,11 +7,11 @@
     atool # work with various files
     alejandra # format nix code
     bazecor # proprietary keyboard layout editor
+    betterdiscordctl # better discord controller
     catppuccin-cursors.mochaLavender # mouse cursor theme
     deno # typescript runtime
     gitmoji-cli # better git commit
     gnome-tweaks # gnome tweaks
-    kitty # terminal emulator
     libnotify # required for 'mako'
     nixd # nix lsp support
     nodejs_22 # required for 'zed-editor' due to temporary bug
