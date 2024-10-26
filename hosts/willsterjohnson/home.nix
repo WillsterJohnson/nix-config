@@ -1,4 +1,8 @@
-{inputs, ...}: {
+{
+  inputs,
+  pkgs,
+  ...
+}: {
   # https://nix-community.github.io/home-manager/options.xhtml
   imports = [
     ./programs/home-manager/bat.nix
@@ -19,6 +23,9 @@
     config = {
       allowUnfree = true;
     };
+  };
+  gtk.cursorTheme = {
+    package = pkgs.catppuccin-cursors.mochaLavender;
   };
   home = {
     username = "willsterjohnson";
