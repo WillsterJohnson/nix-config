@@ -12,7 +12,7 @@
     packages = with pkgs; [];
   };
   home-manager = {
-    backupFileExtension = "backup";
+    backupFileExtension = "backup2";
     extraSpecialArgs = {inherit inputs;};
     users.willsterjohnson = import ./home.nix;
   };
