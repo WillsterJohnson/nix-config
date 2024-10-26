@@ -58,5 +58,3 @@ ls -1 $HOME/.homefiles | while read name; do
 done
 
 eval $(deno completions zsh)
-
-# betterdiscordctl install &> /dev/null

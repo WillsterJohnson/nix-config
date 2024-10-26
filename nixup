@@ -60,7 +60,7 @@ while [[ $# -gt 0 ]]; do
 			if [[ -n $2 ]]; then shell=$2 ; shift 2
 			else exit `excho "Error: --shell requires an argument"`; fi
 			;;
-		--help) exit `displayHelp` ;;
+		--help) displayHelp; exit 0 ;;
 		--bcwt) bcwt="--bcwt"; shift ;;
 		*) exit `excho "Error: Unknown option: $1"` ;;
 	esac

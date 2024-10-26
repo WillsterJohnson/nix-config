@@ -6,6 +6,7 @@
   # https://nix-community.github.io/home-manager/options.xhtml
   imports = [
     ./programs/bat.nix
+    ./programs/betterdiscord.nix
     ./programs/bun.nix
     ./programs/firefox.nix
     ./programs/fzf.nix
