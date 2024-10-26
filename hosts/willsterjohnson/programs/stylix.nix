@@ -32,6 +32,7 @@ in {
   stylix = {
     enable = true;
     autoEnable = true;
+    image = ./stylix.png;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
     cursor = {
       name = "Catppuccin Mocha";
