@@ -13,16 +13,12 @@
     gnome-tweaks # gnome tweaks
     kitty # terminal emulator
     libnotify # required for 'mako'
-    mako # notification daemon
     nixd # nix lsp support
     nodejs_22 # required for 'zed-editor' due to temporary bug
     obsidian # note taking app
-    rofi-wayland # application launcher
     rustup # rust toolchain
     shellcheck # required for shell script support in 'zed-editor'
-    # swww # wallpaper manager
     unzip # required for 'atool'
-    waybar # status bar
     zed-editor # text editor
     inputs.zen-browser.packages.x86_64-linux.specific # zen browser
   ];

@@ -65,10 +65,4 @@
   services.openssh.enable = true;
   system.stateVersion = "24.05";
   time.timeZone = "Europe/London";
-  xdg.portal = {
-    enable = true;
-    extraPortals = [
-      pkgs.xdg-desktop-portal-gtk
-    ];
-  };
 }
