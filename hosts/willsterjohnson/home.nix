@@ -13,41 +13,38 @@
       allowUnfree = true;
     };
   };
-  # gtk.cursorTheme = {
-  #   package = pkgs.catppuccin-cursors.mochaLavender;
-  #   name = "mochaLavender";
-  # };
+
+  programs = {
+    bat.enable = true;
+    fzf = {
+      enable = true;
+      enableZshIntegration = true;
+    };
+    lsd = {
+      enable = true;
+      enableAliases = true;
+    };
+    oh-my-posh = {
+      enable = true;
+      enableZshIntegration = true;
+      useTheme = "catppuccin_mocha";
+    };
+    ssh = {
+      enable = true;
+      addKeysToAgent = "yes";
+    };
+    zoxide = {
+      enable = true;
+      enableZshIntegration = true;
+      options = ["--cmd cd"];
+    };
+  };
   home = {
     username = "willsterjohnson";
     homeDirectory = "/home/willsterjohnson";
     stateVersion = "24.05";
     sessionVariables = {
       EDITOR = "nano";
-    };
-    programs = {
-      bat.enable = true;
-      fzf = {
-        enable = true;
-        enableZshIntegration = true;
-      };
-      lsd = {
-        enable = true;
-        enableAliases = true;
-      };
-      oh-my-posh = {
-        enable = true;
-        enableZshIntegration = true;
-        useTheme = "catppuccin_mocha";
-      };
-      ssh = {
-        enable = true;
-        addKeysToAgent = "yes";
-      };
-      zoxide = {
-        enable = true;
-        enableZshIntegration = true;
-        options = ["--cmd cd"];
-      };
     };
     file = {
       files = {
