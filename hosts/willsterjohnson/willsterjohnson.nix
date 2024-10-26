@@ -9,10 +9,9 @@
     isNormalUser = true;
     description = "Willster Johnson";
     extraGroups = ["networkmanager" "wheel"];
-    packages = with pkgs; [];
   };
   home-manager = {
-    backupFileExtension = "backup2";
+    backupFileExtension = "backup";
     extraSpecialArgs = {inherit inputs;};
     users.willsterjohnson = import ./home.nix;
   };

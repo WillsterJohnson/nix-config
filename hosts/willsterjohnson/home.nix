@@ -1,20 +1,8 @@
-{
-  inputs,
-  pkgs,
-  ...
-}: {
+{inputs, ...}: {
   # https://nix-community.github.io/home-manager/options.xhtml
   imports = [
-    ./programs/bat.nix
-    # ./programs/betterdiscord.nix
-    ./programs/bun.nix
     ./programs/firefox.nix
-    ./programs/fzf.nix
     ./programs/git.nix
-    ./programs/lsd.nix
-    ./programs/oh-my-posh.nix
-    ./programs/ssh.nix
-    ./programs/zoxide.nix
     ./programs/zsh.nix
   ];
   nixpkgs = {
@@ -35,6 +23,31 @@
     stateVersion = "24.05";
     sessionVariables = {
       EDITOR = "nano";
+    };
+    programs = {
+      bat.enable = true;
+      fzf = {
+        enable = true;
+        enableZshIntegration = true;
+      };
+      lsd = {
+        enable = true;
+        enableAliases = true;
+      };
+      oh-my-posh = {
+        enable = true;
+        enableZshIntegration = true;
+        useTheme = "catppuccin_mocha";
+      };
+      ssh = {
+        enable = true;
+        addKeysToAgent = "yes";
+      };
+      zoxide = {
+        enable = true;
+        enableZshIntegration = true;
+        options = ["--cmd cd"];
+      };
     };
     file = {
       files = {
