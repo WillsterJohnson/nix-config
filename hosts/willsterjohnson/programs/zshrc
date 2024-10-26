@@ -61,8 +61,10 @@ eval $(deno completions zsh)
 
 betterdiscordctl install &>/dev/null
 betterDiscordPlugins=$HOME/.config/BetterDiscord/plugins
-unlink $betterDiscordPlugins || rm -rf $betterDiscordPlugins
+if [ -L $betterDiscordPlugins ]; then unlink $betterDiscordPlugins
+else rm -rf $betterDiscordPlugins ;fi
 ln -s $HOME/.files/BetterDiscord/plugins $betterDiscordPlugins
 betterDiscordThemes=$HOME/.config/BetterDiscord/themes
-unlink $betterDiscordThemes || rm -rf $betterDiscordThemes
+if [ -L $betterDiscordThemes ]; then unlink $betterDiscordThemes
+else rm -rf $betterDiscordThemes ;fi
 ln -s $HOME/.files/BetterDiscord/themes $betterDiscordThemes
