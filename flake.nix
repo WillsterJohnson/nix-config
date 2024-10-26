@@ -21,6 +21,7 @@
     nixos-hardware = {
       url = "github:NixOS/nixos-hardware/master";
     };
+    stylix.url = "github:danth/stylix";
     zen-browser.url = "github:omarcresp/zen-browser-flake";
   };
 
