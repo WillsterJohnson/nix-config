@@ -24,9 +24,10 @@
       allowUnfree = true;
     };
   };
-  gtk.cursorTheme = {
-    package = pkgs.catppuccin-cursors.mochaLavender;
-  };
+  # gtk.cursorTheme = {
+  #   package = pkgs.catppuccin-cursors.mochaLavender;
+  #   name = "mochaLavender";
+  # };
   home = {
     username = "willsterjohnson";
     homeDirectory = "/home/willsterjohnson";
