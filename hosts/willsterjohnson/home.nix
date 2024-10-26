@@ -5,16 +5,16 @@
 }: {
   # https://nix-community.github.io/home-manager/options.xhtml
   imports = [
-    ./programs/home-manager/bat.nix
-    ./programs/home-manager/bun.nix
-    ./programs/home-manager/firefox.nix
-    ./programs/home-manager/fzf.nix
-    ./programs/home-manager/git.nix
-    ./programs/home-manager/lsd.nix
-    ./programs/home-manager/oh-my-posh.nix
-    ./programs/home-manager/ssh.nix
-    ./programs/home-manager/zoxide.nix
-    ./programs/home-manager/zsh.nix
+    ./programs/bat.nix
+    ./programs/bun.nix
+    ./programs/firefox.nix
+    ./programs/fzf.nix
+    ./programs/git.nix
+    ./programs/lsd.nix
+    ./programs/oh-my-posh.nix
+    ./programs/ssh.nix
+    ./programs/zoxide.nix
+    ./programs/zsh.nix
   ];
   nixpkgs = {
     overlays = [
