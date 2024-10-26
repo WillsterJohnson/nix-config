@@ -40,12 +40,12 @@
       BetterDiscord_plugins = {
         recursive = true;
         target = ".config/BetterDiscord/plugins";
-        source = ./BetterDiscord/plugins;
+        source = ./programs/BetterDiscord/plugins;
       };
       BetterDiscord_themes = {
         recursive = true;
         target = ".config/BetterDiscord/themes";
-        source = ./BetterDiscord/themes;
+        source = ./programs/BetterDiscord/themes;
       };
       homefiles = {
         recursive = true;
