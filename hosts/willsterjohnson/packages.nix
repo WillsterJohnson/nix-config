@@ -7,7 +7,6 @@
     atool # work with various files
     alejandra # format nix code
     bazecor # proprietary keyboard layout editor
-    betterdiscord-installer # better discord
     betterdiscordctl # better discord controller
     catppuccin-cursors.mochaLavender # mouse cursor theme
     discord # dicord app
