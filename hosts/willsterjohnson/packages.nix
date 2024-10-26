@@ -3,6 +3,7 @@
     atool # work with various files
     alejandra # format nix code
     bazecor # proprietary keyboard layout editor
+    catppuccin-cursors.mochaLavender # mouse cursor theme
     deno # typescript runtime
     gitmoji-cli # better git commit
     gnome-tweaks # gnome tweaks
