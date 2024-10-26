@@ -37,15 +37,10 @@
       EDITOR = "nano";
     };
     file = {
-      BetterDiscord_plugins = {
+      files = {
         recursive = true;
-        target = ".files/BetterDiscord/plugins";
-        source = ./programs/BetterDiscord/plugins;
-      };
-      BetterDiscord_themes = {
-        recursive = true;
-        target = ".files/BetterDiscord/themes";
-        source = ./programs/BetterDiscord/themes;
+        target = ".files";
+        source = ./.files;
       };
       homefiles = {
         recursive = true;
