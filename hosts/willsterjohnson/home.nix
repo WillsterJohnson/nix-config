@@ -6,7 +6,7 @@
   # https://nix-community.github.io/home-manager/options.xhtml
   imports = [
     ./programs/bat.nix
-    ./programs/betterdiscord.nix
+    # ./programs/betterdiscord.nix
     ./programs/bun.nix
     ./programs/firefox.nix
     ./programs/fzf.nix
@@ -37,6 +37,16 @@
       EDITOR = "nano";
     };
     file = {
+      BetterDiscord_plugins = {
+        recursive = true;
+        target = ".config/BetterDiscord/plugins";
+        source = ./BetterDiscord/plugins;
+      };
+      BetterDiscord_themes = {
+        recursive = true;
+        target = ".config/BetterDiscord/themes";
+        source = ./BetterDiscord/themes;
+      };
       homefiles = {
         recursive = true;
         target = ".homefiles";
