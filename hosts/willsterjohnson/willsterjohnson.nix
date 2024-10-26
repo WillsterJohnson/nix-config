@@ -3,6 +3,10 @@
   inputs,
   ...
 }: {
+  programs.hyprland = {
+    enable = true;
+    xwayland.enable = true;
+  };
   programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;
   users.users.willsterjohnson = {

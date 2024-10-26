@@ -9,9 +9,6 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # hyprland = {
-    #   url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
-    # };
     nixpkgs = {
       url = "github:nixos/nixpkgs/nixpkgs-unstable";
     };
@@ -42,7 +39,6 @@
       };
       modules = [
         ./hosts/willsterjohnson/configuration.nix
-        # hyprland.nixosModules.default
         stylix.nixosModules.stylix
         inputs.home-manager.nixosModules.default
         inputs.nixos-hardware.nixosModules.framework-16-7040-amd
