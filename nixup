@@ -43,18 +43,12 @@ displayHelp() {
 	echo "  --help                Display this help message"
 }
 
-# Ignore clean working tree
-if [[ -z `echo "$@" | grep -- "--bcwt"` ]] && [[ -z `git status --porcelain` ]]; then
-	echo "Working tree is clean - nothing to build!"
-	echo "Use --bcwt to build anyway"
-	exit 0
-fi
-
 # Initialize variables
 verbose=
 format=
 sync=
 shell="zsh"
+bcwt=
 
 # Parse command line arguments
 while [[ $# -gt 0 ]]; do
@@ -67,7 +61,7 @@ while [[ $# -gt 0 ]]; do
 			else exit `excho "Error: --shell requires an argument"`; fi
 			;;
 		--help) exit `displayHelp` ;;
-		--bcwt) shift ;;
+		--bcwt) bcwt="--bcwt"; shift ;;
 		*) exit `excho "Error: Unknown option: $1"` ;;
 	esac
 done
@@ -88,29 +82,33 @@ olderThan="30d"
 runHourly "nid-collect-garbage.pid" "Nix garbage collection ($olderThan)" "sudo nix-collect-garbage --delete-older-than $olderThan"
 
 # Run nixos-rebuild
-logfile=`abspathrel "nixos-switch.log"`
-lineNumber=0
-hasErr=
-prevLine=""
-echo "NixOS Rebuilding..."
-sudo nixos-rebuild switch --upgrade --verbose --flake "${scriptDir}#default" 2>&1 \
-	| while IFS= read -r line; do
-		((lineNumber++))
-		if [ -n "$prevLine" ]; then printf "\033[1A\033[K"; fi
-		prevLine="$line"
-		echo "$line" >> "$logfile"
-		echo "$line"
-		if [[ "$line" == *"warning: error"* ]]; then hasErr=true; fi
-	done
-
-if [[ $? -ne 0 ]]; then
-	if [[ -n "$verbose" ]]; then cat $logfile >&2
-	else cat $logfile | grep --color "error" >&2; fi
-	exit `excho "\033[0;31mNixOS Rebuild failed\033[0m"`
+# Ignore clean working tree
+if [[ -z "$bcwt" ]] && [[ -z `git status --porcelain` ]]; then
+	echo "Working tree is clean - nothing to build!"
+	echo "Use --bcwt to build anyway"
+else
+	logfile=`abspathrel "nixos-switch.log"`
+	lineNumber=0
+	hasErr=
+	prevLine=""
+	echo "NixOS Rebuilding..."
+	sudo nixos-rebuild switch --upgrade --verbose --flake "${scriptDir}#default" 2>&1 \
+		| while IFS= read -r line; do
+			((lineNumber++))
+			if [ -n "$prevLine" ]; then printf "\033[1A\033[K"; fi
+			prevLine="$line"
+			echo "$line" >> "$logfile"
+			echo "$line"
+			if [[ "$line" == *"warning: error"* ]]; then hasErr=true; fi
+		done
+	if [[ $? -ne 0 ]]; then
+		if [[ -n "$verbose" ]]; then cat $logfile >&2
+		else cat $logfile | grep --color "error" >&2; fi
+		exit `excho "\033[0;31mNixOS Rebuild failed\033[0m"`
+	fi
+	if [[ -n "$hasErr" ]]; then echo -e "\033[0;33m[log #$lineNumber]: non-fatal error(s)\033[0m" >&2; fi
+	echo "NixOS Rebuild completed successfully"
 fi
-
-if [[ -n "$hasErr" ]]; then echo -e "\033[0;33m[log #$lineNumber]: non-fatal error(s)\033[0m" >&2; fi
-echo "NixOS Rebuild completed successfully"
 
 # Commit changes
 pushd $scriptDir &>/dev/null
