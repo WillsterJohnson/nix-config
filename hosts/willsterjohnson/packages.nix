@@ -13,6 +13,7 @@
     deno # typescript runtime
     gitmoji-cli # better git commit
     gnome-tweaks # gnome tweaks
+    gnomeExtensions.undecorate # remove window decorations
     libnotify # required for 'mako'
     nixd # nix lsp support
     nodejs_22 # required for 'zed-editor' due to temporary bug
