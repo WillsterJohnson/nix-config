@@ -21,7 +21,7 @@
     rustup # rust toolchain
     shellcheck # required for shell script support in 'zed-editor'
     unzip # required for 'atool'
-    zed-editor # text editor
+    # zed-editor # text editor
     inputs.zen-browser.packages.x86_64-linux.specific # zen browser
   ];
   fonts.packages = with pkgs; [
