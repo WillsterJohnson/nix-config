@@ -100,7 +100,7 @@ else
 			prevLine="$line"
 			echo "$line" >> "$logfile"
 			echo "$line"
-			if [[ "$line" == *"warning: error"* ]]; then hasErr=true; fi
+			if [[ "$line" == *"warning: error"* ]] || [[ "$line" == *"error:"* ]]; then hasErr=true; fi
 		done
 	if [[ $? -ne 0 ]]; then
 		if [[ -n "$verbose" ]]; then cat $logfile >&2
