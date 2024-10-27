@@ -51,8 +51,8 @@
     };
   };
   dconf.settings."org/gnome/shell".enabled-extensions = [
-    pkgs.gnomeExtensions.unite.extensionUuid
-    pkgs.gnomeExtensions.user-themes.extensionUuid
+    "unite@hardpixel.eu" # unite
+    "user-theme@gnome-shell-extensions.gcampax.github.com" # user-themes
   ];
   home = {
     username = "willsterjohnson";
