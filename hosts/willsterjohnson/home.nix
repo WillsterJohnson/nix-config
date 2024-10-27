@@ -1,4 +1,8 @@
-{inputs, ...}: {
+{
+  inputs,
+  pkgs,
+  ...
+}: {
   # https://nix-community.github.io/home-manager/options.xhtml
   imports = [
     ./programs/firefox.nix
@@ -20,6 +24,12 @@
     fzf = {
       enable = true;
       enableZshIntegration = true;
+    };
+    gnome-shell = {
+      enable = true;
+      extensions = [
+        {package = pkgs.gnomeExtensions.undecorate;}
+      ];
     };
     lsd = {
       enable = true;
