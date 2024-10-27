@@ -25,13 +25,10 @@
   outputs = {
     self,
     nixpkgs,
-    # hyprland,
     home-manager,
     stylix,
     ...
-  } @ inputs: let
-    inherit (nixpkgs.lib) nixosSystem;
-  in {
+  } @ inputs: {
     nixosConfigurations.default = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = {

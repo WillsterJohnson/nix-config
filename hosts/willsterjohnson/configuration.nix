@@ -1,7 +1,6 @@
-{inputs, ...}: {
+{...}: {
   imports = [
     ./hardware-configuration.nix
-    inputs.home-manager.nixosModules.default
     ./packages.nix
     ./willsterjohnson.nix
     ./programs/stylix.nix
