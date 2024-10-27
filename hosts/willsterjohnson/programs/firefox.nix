@@ -48,13 +48,13 @@
         };
       };
       containersForce = true;
-      extensions = with pkgs.nur.repos.rycee.firefox-addons; [
-        catppuccin-gh-file-explorer
-        enhancer-for-youtube
-        honey
-        tree-style-tab
-        ublock-origin
-      ];
+      # extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+      #   catppuccin-gh-file-explorer
+      #   enhancer-for-youtube
+      #   honey
+      #   tree-style-tab
+      #   ublock-origin
+      # ];
       id = 0;
       isDefault = true;
       name = "Default";
