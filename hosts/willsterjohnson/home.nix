@@ -50,10 +50,6 @@
       options = ["--cmd cd"];
     };
   };
-  dconf.settings."org/gnome/shell".enabled-extensions = [
-    "unite@hardpixel.eu" # unite
-    "user-theme@gnome-shell-extensions.gcampax.github.com" # user-themes
-  ];
   home = {
     username = "willsterjohnson";
     homeDirectory = "/home/willsterjohnson";

@@ -13,7 +13,6 @@
     deno # typescript runtime
     gitmoji-cli # better git commit
     gnome-tweaks # gnome tweaks
-    gnomeExtensions.unite # UI layout tweaks
     nixd # nix lsp support
     nodejs_22 # required for 'zed-editor' due to temporary bug
     obsidian # note taking app
