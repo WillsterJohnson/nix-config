@@ -11,7 +11,7 @@
     extraGroups = ["networkmanager" "wheel"];
   };
   home-manager = {
-    backupFileExtension = "backup";
+    backupFileExtension = "backu2p";
     extraSpecialArgs = {inherit inputs;};
     users.willsterjohnson = import ./home.nix;
   };
