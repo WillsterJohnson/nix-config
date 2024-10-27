@@ -50,6 +50,9 @@
       options = ["--cmd cd"];
     };
   };
+  dconf.settings."org/gnome/shell".enabled-extensions = [
+    pkgs.gnomeExtensions.undecorate.extensionUuid
+  ];
   home = {
     username = "willsterjohnson";
     homeDirectory = "/home/willsterjohnson";
