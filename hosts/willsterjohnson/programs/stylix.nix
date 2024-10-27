@@ -5,7 +5,7 @@
     image = ./stylix.png;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
     cursor = {
-      name = "catppuccin-mocha-lavender";
+      name = "Catppuccin-mocha-lavender";
       package = pkgs.catppuccin-cursors.mochaLavender;
       size = 36;
     };
