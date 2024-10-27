@@ -3,6 +3,7 @@
   imports = [
     ./programs/firefox.nix
     ./programs/git.nix
+    ./programs/zed-editor.nix
     ./programs/zsh.nix
   ];
   nixpkgs = {

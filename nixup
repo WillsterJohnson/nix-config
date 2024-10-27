@@ -92,6 +92,7 @@ else
 	hasErr=
 	prevLine=""
 	echo "NixOS Rebuilding..."
+	rm -f $logfile
 	sudo nixos-rebuild switch --upgrade --verbose --flake "${scriptDir}#default" 2>&1 \
 		| while IFS= read -r line; do
 			((lineNumber++))
