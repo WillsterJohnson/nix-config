@@ -18,6 +18,7 @@
       allowUnfree = true;
     };
   };
+
   programs = {
     bat.enable = true;
     fzf = {
@@ -49,6 +50,10 @@
       options = ["--cmd cd"];
     };
   };
+  dconf.settings."org/gnome/shell".enabled-extensions = [
+    pkgs.gnomeExtensions.unite.extensionUuid
+    pkgs.gnomeExtensions.user-themes.extensionUuid
+  ];
   home = {
     username = "willsterjohnson";
     homeDirectory = "/home/willsterjohnson";

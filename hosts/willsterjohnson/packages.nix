@@ -13,14 +13,14 @@
     deno # typescript runtime
     gitmoji-cli # better git commit
     gnome-tweaks # gnome tweaks
-    libnotify # required for 'mako'
+    gnomeExtensions.unite # UI layout tweaks
     nixd # nix lsp support
     nodejs_22 # required for 'zed-editor' due to temporary bug
     obsidian # note taking app
     rustup # rust toolchain
     shellcheck # required for shell script support in 'zed-editor'
+    xorg.xprop # required for 'gnomeExtensions.unite'
     unzip # required for 'atool'
-    # zed-editor # text editor
     inputs.zen-browser.packages.x86_64-linux.specific # zen browser
   ];
   fonts.packages = with pkgs; [
