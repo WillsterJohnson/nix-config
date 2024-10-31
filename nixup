@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 scriptDir=`cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &>/dev/null && pwd`
+pushd $scriptDir &>/dev/null
 
 # $1: path relative to script directory
 abspathrel() {
@@ -112,11 +113,10 @@ else
 fi
 
 # Commit changes
-pushd $scriptDir &>/dev/null
 git commit -m "`nixos-rebuild list-generations | grep current`"
 if [[ "$sync" == "--sync" ]]; then git push
 else echo "To push the changes, run '$0 --sync'"; fi
-popd &>/dev/null
 
+popd &>/dev/null
 # Restart shell
 exec $shell

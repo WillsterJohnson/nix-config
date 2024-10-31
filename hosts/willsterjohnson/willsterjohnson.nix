@@ -8,7 +8,7 @@
   users.users.willsterjohnson = {
     isNormalUser = true;
     description = "Willster Johnson";
-    extraGroups = ["networkmanager" "wheel"];
+    extraGroups = ["networkmanager" "wheel" "dialout"];
   };
   home-manager = {
     backupFileExtension = "backu2p";
