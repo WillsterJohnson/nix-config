@@ -31,6 +31,7 @@
       ll = lib.mkForce "ls -lA --group-directories-first --git";
       nixup = "/etc/nixos/nixup";
       nixedit = "z /etc/nixos";
+      plz = "sudo";
       z = "zeditor";
       list-firefox-addons = "nix flake show gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
     };

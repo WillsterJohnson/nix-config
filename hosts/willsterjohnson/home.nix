@@ -5,7 +5,6 @@
 }: {
   # https://nix-community.github.io/home-manager/options.xhtml
   imports = [
-    ./programs/firefox.nix
     ./programs/git.nix
     ./programs/zed-editor.nix
     ./programs/zsh.nix
