@@ -98,7 +98,7 @@
       ui_font_size = 16;
       ui_font_family = "Victor Mono";
       ui_font_weight = 500;
-      vertical_scroll_margin = 9;
+      vertical_scroll_margin = 100;
       wrap_guides = [80 100 120];
     };
   };
