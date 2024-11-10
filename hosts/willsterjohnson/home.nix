@@ -17,7 +17,7 @@
           in (
             if (pathExists "${appsPath}/${pkg.pname}.desktop")
             then "${appsPath}/${pkg.pname}.desktop"
-            else throw "no desktop file for app ${pkg.pname}"
+            else throw "no desktop file for app ${pkg.pname}: ${pkg.pname} has no 'desktopItem' and no matching desktop file in ${appsPath}"
           );
         };
     })
