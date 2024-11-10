@@ -28,10 +28,6 @@
     ]);
 in {
   # https://nix-community.github.io/home-manager/options.xhtml
-  imports = [
-    ./programs/zed-editor.nix
-    ./programs/zsh.nix
-  ];
   nixpkgs = {
     overlays = [
       inputs.nur.overlay
