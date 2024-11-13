@@ -132,6 +132,9 @@ in {
           "**/node_modules"
           "**/.turbo"
         ];
+        file_types = {
+          JSONC = ["deno.json"];
+        };
         format_on_save = "on";
         hard_tabs = true;
         inlay_hints = {
