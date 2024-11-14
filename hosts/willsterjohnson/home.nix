@@ -22,7 +22,7 @@
         };
     })
     [
-      # inputs.zen-browser.packages.x86_64-linux.specific
+      inputs.zen-browser.packages.x86_64-linux.specific
       pkgs.discord
       pkgs.xterm
     ]);
