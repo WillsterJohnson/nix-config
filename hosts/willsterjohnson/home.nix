@@ -160,7 +160,7 @@ in {
             };
           };
         };
-        preferred_line_length = 120;
+        preferred_line_length = 100;
         show_whitespaces = "boundary";
         tab_size = 4;
         tabs = {
@@ -180,7 +180,7 @@ in {
         ui_font_family = "Victor Mono";
         ui_font_weight = 500;
         vertical_scroll_margin = 100;
-        wrap_guides = [80 100 120];
+        wrap_guides = [90 100];
       };
     };
     zoxide = {
