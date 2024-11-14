@@ -22,7 +22,7 @@
         };
     })
     [
-      inputs.zen-browser.packages.x86_64-linux.specific
+      # inputs.zen-browser.packages.x86_64-linux.specific
       pkgs.discord
       pkgs.xterm
     ]);
@@ -231,9 +231,8 @@ in {
       EDITOR = "nano";
     };
     file =
-      # autostartFile
-      # //
-      {
+      autostartFile
+      // {
         files = {
           recursive = true;
           target = ".files";
