@@ -231,8 +231,9 @@ in {
       EDITOR = "nano";
     };
     file =
-      autostartFile
-      // {
+      # autostartFile
+      # //
+      {
         files = {
           recursive = true;
           target = ".files";
