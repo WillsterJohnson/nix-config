@@ -19,6 +19,7 @@
     python310 # required for terminal extension in 'obsidian' (for some reason)
     rustup # rust toolchain
     shellcheck # required for shell script support in 'zed-editor'
+    steam # steam
     xorg.xprop # required for 'gnomeExtensions.unite'
     unzip # required for 'atool'
     inputs.zen-browser.packages.x86_64-linux.specific # zen browser
