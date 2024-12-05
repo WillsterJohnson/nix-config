@@ -145,10 +145,10 @@ in {
         };
         languages = {
           TypeScript = {
-            language_servers = ["deno" "!typescript-language-server" "!vtsls" "!eslint"];
+            language_servers = ["deno" "typescript-language-server" "!vtsls" "!eslint"];
           };
           TSX = {
-            language_servers = ["deno" "!typescript-language-server" "!vtsls" "!eslint"];
+            language_servers = ["deno" "typescript-language-server" "!vtsls" "!eslint"];
           };
         };
         lsp = {
