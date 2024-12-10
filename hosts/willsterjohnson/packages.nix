@@ -12,7 +12,6 @@
     discord # dicord app
     deno # typescript runtime
     gitmoji-cli # better git commit
-    gnome-boxes # virtual machine manager
     gnome-tweaks # gnome tweaks
     nixd # nix lsp support
     nodejs_22 # required for 'zed-editor' due to temporary bug
@@ -23,6 +22,7 @@
     steam # steam
     xorg.xprop # required for 'gnomeExtensions.unite'
     unzip # required for 'atool'
+    virtualbox # virtual machine manager
     inputs.zen-browser.packages.x86_64-linux.specific # zen browser
   ];
   fonts.packages = with pkgs; [
