@@ -12,6 +12,7 @@
     discord # dicord app
     deno # typescript runtime
     gitmoji-cli # better git commit
+    gnome-boxes # virtual machine manager
     gnome-tweaks # gnome tweaks
     nixd # nix lsp support
     nodejs_22 # required for 'zed-editor' due to temporary bug
