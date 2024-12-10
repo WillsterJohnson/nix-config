@@ -22,7 +22,6 @@
     steam # steam
     xorg.xprop # required for 'gnomeExtensions.unite'
     unzip # required for 'atool'
-    virtualbox # virtual machine manager
     inputs.zen-browser.packages.x86_64-linux.specific # zen browser
   ];
   fonts.packages = with pkgs; [
