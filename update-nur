@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+repoUri="https://github.com/nix-community/NUR"
+
+latestCommitHash=$(git ls-remote "$repoUri" HEAD | cut -f1)
+
+echo "paste the following lines into configuration.nix"
+echo "url = \"https://github.com/nix-community/NUR/archive/$latestCommitHash.tar.gz\";"
+echo "sha256 = \"091im23kdb9p75hgrhp613jpqj67yl655ad2mqkjp4yl74spgkas\";"
