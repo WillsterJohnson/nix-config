@@ -107,7 +107,7 @@ else
 	hasErr=
 	prevLine=""
 	echo "NixOS Rebuilding..."
-	sudo nixos-rebuild switch --upgrade --verbose --flake "${scriptDir}#default"
+	sudo nixos-rebuild switch --upgrade --verbose --show-trace --flake "${scriptDir}#default"
 	if [[ $? -ne 0 ]]
 	then exit `excho "\033[0;31mNixOS Rebuild failed\033[0m"`
 	fi
