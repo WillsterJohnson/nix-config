@@ -17,6 +17,7 @@
     nixd # nix lsp support
     nodejs_22 # required for 'zed-editor' due to temporary bug
     obsidian # note taking app
+    protontricks # protontricks
     python310 # required for terminal extension in 'obsidian' (for some reason)
     rustup # rust toolchain
     shellcheck # required for shell script support in 'zed-editor'
