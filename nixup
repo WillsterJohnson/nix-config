@@ -42,7 +42,6 @@ displayHelp() {
 	echo "Options:"
 	echo "  --verbose             Enable verbose output"
 	echo "  --format              Format only (no rebuild)"
-	echo "  --sync                Sync changes after rebuild"
 	echo "  --shell <shell>       Specify shell (default: zsh)"
 	echo "  --bcwt                Build, even with a Clean Working Tree"
 	echo "  --help                Display this help message"
@@ -51,7 +50,6 @@ displayHelp() {
 # Initialize variables
 verbose=
 format=
-sync=
 shell="zsh"
 bcwt=
 
@@ -61,7 +59,6 @@ do
 	case $1 in
 		--verbose) verbose="--verbose"; shift ;;
 		--format) format="--format"; shift ;;
-		--sync) sync="--sync"; shift ;;
 		--shell)
 			if [[ -n $2 ]]
 			then
@@ -119,10 +116,7 @@ fi
 
 # Commit changes
 git commit -m "`nixos-rebuild list-generations | grep current`"
-if [[ "$sync" == "--sync" ]]
-then git push
-else echo "To push the changes, run '$0 --sync'"
-fi
+git push -f
 
 popd &>/dev/null
 # Restart shell

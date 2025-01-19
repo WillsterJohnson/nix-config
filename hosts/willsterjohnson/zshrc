@@ -63,7 +63,7 @@ betterdiscordctl install &>/dev/null
 betterDiscordPlugins=$HOME/.config/BetterDiscord/plugins/
 if [ -L $betterDiscordPlugins ]; then unlink $betterDiscordPlugins
 else rm -rf $betterDiscordPlugins ;fi
-cp -r $HOME/.files/BetterDiscord/plugins/ $betterDiscordPlugins
+ln -s $HOME/.files/BetterDiscord/plugins/ $betterDiscordPlugins
 betterDiscordThemes=$HOME/.config/BetterDiscord/themes
 if [ -L $betterDiscordThemes ]; then unlink $betterDiscordThemes
 else rm -rf $betterDiscordThemes ;fi

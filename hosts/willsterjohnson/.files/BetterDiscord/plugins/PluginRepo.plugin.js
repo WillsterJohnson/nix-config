@@ -1,1 +1,0 @@
-/nix/store/mxa7kjd4ghrz3lzpb63sjl0qgvaaa027-home-manager-files/.files/BetterDiscord/plugins/PluginRepo.plugin.js
