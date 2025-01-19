@@ -25,7 +25,6 @@
   networking.networkmanager.enable = true;
   nix.settings.experimental-features = ["nix-command" "flakes"];
   nixpkgs.config = {
-    allowBroken = true;
     allowUnfree = true;
     packageOverrides = pkgs: {
       nur =
