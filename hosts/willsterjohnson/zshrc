@@ -60,7 +60,7 @@ done
 eval $(deno completions zsh)
 
 betterdiscordctl install &>/dev/null
-betterDiscordPlugins=$HOME/.config/BetterDiscord/plugins/
+betterDiscordPlugins=$HOME/.config/BetterDiscord/plugins
 if [ -L $betterDiscordPlugins ]; then unlink $betterDiscordPlugins
 else rm -rf $betterDiscordPlugins ;fi
 ln -s $HOME/.files/BetterDiscord/plugins/ $betterDiscordPlugins
