@@ -13,6 +13,7 @@
     discord # dicord app
     deno # typescript runtime
     eclipses.eclipse-java # eclipse ide - the worst ide ever (but it supports old java so...)
+    gcc # required for rust toolchain
     gitmoji-cli # better git commit
     gnome-tweaks # gnome tweaks
     jdk8 # java 8
