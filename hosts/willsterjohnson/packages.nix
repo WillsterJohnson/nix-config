@@ -21,6 +21,7 @@
     nodejs_22 # required for 'zed-editor' due to temporary bug
     obsidian # note taking app
     openssl # why is this not included by default?
+    pkg-config # pkg-config
     protontricks # protontricks
     python310 # required for terminal extension in 'obsidian' (for some reason)
     rustup # rust toolchain
