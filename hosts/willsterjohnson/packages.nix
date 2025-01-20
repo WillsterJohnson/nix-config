@@ -31,7 +31,7 @@
     inputs.zen-browser.packages.x86_64-linux.specific # zen browser
   ];
   environment.variables = {
-    #   PKG_CONFIG_PATH = "${pkgs.openssl.dev}/lib/pkgconfig";
+    PKG_CONFIG_PATH = "${pkgs.openssl.dev}/lib/pkgconfig";
   };
   fonts.packages = with pkgs; [
     victor-mono
