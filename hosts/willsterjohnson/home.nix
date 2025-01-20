@@ -83,7 +83,7 @@ in {
       extensions = [
         "catppuccin"
         "csv"
-        "deno"
+        # "deno"
         "emmet"
         "html"
         "nix"
@@ -145,21 +145,31 @@ in {
         };
         languages = {
           TypeScript = {
-            language_servers = ["deno" "typescript-language-server" "!vtsls" "!eslint"];
+            language_servers = [
+              #"deno"
+              "typescript-language-server"
+              "!vtsls"
+              "!eslint"
+            ];
           };
           TSX = {
-            language_servers = ["deno" "typescript-language-server" "!vtsls" "!eslint"];
+            language_servers = [
+              #"deno"
+              "typescript-language-server"
+              "!vtsls"
+              "!eslint"
+            ];
           };
         };
-        lsp = {
-          deno = {
-            settings = {
-              deno = {
-                enable = true;
-              };
-            };
-          };
-        };
+        # lsp = {
+        #   deno = {
+        #     settings = {
+        #       deno = {
+        #         enable = true;
+        #       };
+        #     };
+        #   };
+        # };
         preferred_line_length = 100;
         show_whitespaces = "boundary";
         tab_size = 4;
