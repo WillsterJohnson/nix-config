@@ -22,7 +22,7 @@
     nodejs_22 # required for 'zed-editor' due to temporary bug
     obsidian # note taking app
     # openssl # why is this not included by default?
-    # pkg-config # pkg-config
+    pkg-config # pkg-config
     protontricks # protontricks
     python310 # required for terminal extension in 'obsidian' (for some reason)
     rustup # rust toolchain
@@ -31,9 +31,6 @@
     unzip # required for 'atool'
     inputs.zen-browser.packages.x86_64-linux.specific # zen browser
   ];
-  # imports = [
-  #   inputs.nixos-fhs-compat.nixosModules.combined
-  # ];
   environment.fhs.enable = true;
   environment.fhs.linkLibs = true;
   environment.lsb.enable = true;
