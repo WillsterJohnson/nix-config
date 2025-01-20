@@ -11,10 +11,10 @@
     catppuccin-cursors.mochaLavender # mouse cursor theme
     discord # dicord app
     deno # typescript runtime
+    eclipses.eclipse-java # eclipse ide - the worst ide ever (but it supports old java so...)
     gitmoji-cli # better git commit
     gnome-tweaks # gnome tweaks
-    # jdk8 # java 8
-    jdk17 # java 17
+    jdk8 # java 8
     nixd # nix lsp support
     nodejs_22 # required for 'zed-editor' due to temporary bug
     obsidian # note taking app
