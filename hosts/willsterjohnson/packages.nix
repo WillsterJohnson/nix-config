@@ -31,13 +31,13 @@
     unzip # required for 'atool'
     inputs.zen-browser.packages.x86_64-linux.specific # zen browser
   ];
-  imports = [
-    inputs.nixos-fhs-compat.nixosModules.combined
-  ];
-  # environment.fhs.enable = true;
-  # environment.fhs.linkLibs = true;
-  # environment.lsb.enable = true;
-  # environment.lsb.support32Bit = true;
+  # imports = [
+  #   inputs.nixos-fhs-compat.nixosModules.combined
+  # ];
+  environment.fhs.enable = true;
+  environment.fhs.linkLibs = true;
+  environment.lsb.enable = true;
+  environment.lsb.support32Bit = true;
   fonts.packages = with pkgs; [
     victor-mono
     (nerdfonts.override {fonts = ["Meslo"];})

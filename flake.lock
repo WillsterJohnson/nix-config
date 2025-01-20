@@ -268,15 +268,15 @@
     },
     "nixos-fhs-compat": {
       "locked": {
-        "lastModified": 1709818295,
-        "narHash": "sha256-ik5c1pSeTwQLoFibApZaIL7KqG4wPAzI7maPb+gqu+Y=",
-        "owner": "balsoft",
+        "lastModified": 1737391625,
+        "narHash": "sha256-AjicuLYZIy5QmTyMeBafKImO5M5XXmPE9FcAiIMnwFg=",
+        "owner": "willsterjohnson",
         "repo": "nixos-fhs-compat",
-        "rev": "9f6a67af9c8b63111dc6b277ec313097b6278472",
+        "rev": "cb8010afdf1689b0f8f3e82337f0a3fcde828344",
         "type": "github"
       },
       "original": {
-        "owner": "balsoft",
+        "owner": "willsterjohnson",
         "repo": "nixos-fhs-compat",
         "type": "github"
       }

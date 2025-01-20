@@ -20,7 +20,7 @@
     };
     stylix.url = "github:danth/stylix";
     zen-browser.url = "github:willsterjohnson/zen-browser-flake";
-    nixos-fhs-compat.url = "github:balsoft/nixos-fhs-compat";
+    nixos-fhs-compat.url = "github:willsterjohnson/nixos-fhs-compat";
   };
 
   outputs = {
@@ -40,6 +40,8 @@
         stylix.nixosModules.stylix
         inputs.home-manager.nixosModules.default
         inputs.nixos-hardware.nixosModules.framework-16-7040-amd
+        ./modules/fhs.nix
+        ./modules/lsb.nix
       ];
     };
   };
