@@ -266,6 +266,21 @@
         "url": "ssh://git@github.com/redyf/monolisa.git"
       }
     },
+    "nixos-fhs-compat": {
+      "locked": {
+        "lastModified": 1709818295,
+        "narHash": "sha256-ik5c1pSeTwQLoFibApZaIL7KqG4wPAzI7maPb+gqu+Y=",
+        "owner": "balsoft",
+        "repo": "nixos-fhs-compat",
+        "rev": "9f6a67af9c8b63111dc6b277ec313097b6278472",
+        "type": "github"
+      },
+      "original": {
+        "owner": "balsoft",
+        "repo": "nixos-fhs-compat",
+        "type": "github"
+      }
+    },
     "nixos-hardware": {
       "locked": {
         "lastModified": 1729742320,
@@ -376,6 +391,7 @@
       "inputs": {
         "font-flake": "font-flake",
         "home-manager": "home-manager",
+        "nixos-fhs-compat": "nixos-fhs-compat",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_2",
         "nur": "nur",

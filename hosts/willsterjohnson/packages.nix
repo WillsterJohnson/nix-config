@@ -15,14 +15,14 @@
     eclipses.eclipse-java # eclipse ide - the worst ide ever (but it supports old java so...)
     gcc # required for rust toolchain
     gitmoji-cli # better git commit
-    glib # glib
+    # glib # glib
     gnome-tweaks # gnome tweaks
     jdk8 # java 8
     nixd # nix lsp support
     nodejs_22 # required for 'zed-editor' due to temporary bug
     obsidian # note taking app
-    openssl # why is this not included by default?
-    pkg-config # pkg-config
+    # openssl # why is this not included by default?
+    # pkg-config # pkg-config
     protontricks # protontricks
     python310 # required for terminal extension in 'obsidian' (for some reason)
     rustup # rust toolchain
@@ -31,6 +31,13 @@
     unzip # required for 'atool'
     inputs.zen-browser.packages.x86_64-linux.specific # zen browser
   ];
+  imports = [
+    inputs.nixos-fhs-compat.nixosModules.combined
+  ];
+  # environment.fhs.enable = true;
+  # environment.fhs.linkLibs = true;
+  # environment.lsb.enable = true;
+  # environment.lsb.support32Bit = true;
   fonts.packages = with pkgs; [
     victor-mono
     (nerdfonts.override {fonts = ["Meslo"];})

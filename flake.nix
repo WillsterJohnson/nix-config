@@ -20,6 +20,7 @@
     };
     stylix.url = "github:danth/stylix";
     zen-browser.url = "github:willsterjohnson/zen-browser-flake";
+    nixos-fhs-compat.url = "github:balsoft/nixos-fhs-compat";
   };
 
   outputs = {
