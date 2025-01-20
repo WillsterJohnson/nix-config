@@ -34,6 +34,7 @@
   environment.fhs.enable = true;
   environment.fhs.linkLibs = true;
   environment.lsb.enable = true;
+  environment.lsb.enableDesktop = true;
   environment.lsb.support32Bit = true;
   fonts.packages = with pkgs; [
     victor-mono
