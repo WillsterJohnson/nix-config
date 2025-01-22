@@ -15,8 +15,8 @@
     eclipses.eclipse-java # eclipse ide - the worst ide ever (but it supports old java so...)
     gcc # required for rust toolchain
     gitmoji-cli # better git commit
-    # glib # glib
     gnome-tweaks # gnome tweaks
+    inotify-tools # fs watch and more
     jdk8 # java 8
     nixd # nix lsp support
     nodejs_22 # required for 'zed-editor' due to temporary bug
@@ -31,11 +31,6 @@
     unzip # required for 'atool'
     inputs.zen-browser.packages.x86_64-linux.specific # zen browser
   ];
-  environment.fhs.enable = true;
-  environment.fhs.linkLibs = true;
-  environment.lsb.enable = true;
-  environment.lsb.enableDesktop = true;
-  environment.lsb.support32Bit = true;
   fonts.packages = with pkgs; [
     victor-mono
     (nerdfonts.override {fonts = ["Meslo"];})

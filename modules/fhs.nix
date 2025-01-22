@@ -10,7 +10,7 @@
       "FHS compatibility mode (not recommended on host systems)";
     linkExes = lib.mkOption {
       type = lib.types.bool;
-      default = true;
+      default = false;
       description = ''
         Whether to link executables to /bin, /sbin and /usr/bin
       '';

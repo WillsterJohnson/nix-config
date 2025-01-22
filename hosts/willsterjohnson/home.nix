@@ -205,7 +205,6 @@ in {
       envExtra = ''
         export PATH="/home/willsterjohnson/.deno/bin:$PATH"
         export LD_LIBRARY_PATH="${pkgs.stdenv.cc.cc.lib}/lib"
-        # export PKG_CONFIG_PATH="${pkgs.openssl.dev}/lib/pkgconfig:${pkgs.glib.dev}/lib/pkgconfig"
       '';
       initExtra = builtins.readFile ./zshrc;
       plugins = [
