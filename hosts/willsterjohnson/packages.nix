@@ -17,7 +17,7 @@
     gitmoji-cli # better git commit
     gnome-tweaks # gnome tweaks
     inotify-tools # fs watch and more
-    jdk21 # jdk21
+    jdk8 # jdk8
     nixd # nix lsp support
     nodejs_22 # required for 'zed-editor' due to temporary bug
     obsidian # note taking app
