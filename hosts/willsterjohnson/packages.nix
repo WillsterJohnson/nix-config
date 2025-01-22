@@ -18,7 +18,7 @@
     gnome-tweaks # gnome tweaks
     inotify-tools # fs watch and more
     jetbrains.idea-community # intellij idea community edition
-    jdk8 # jdk8
+    jdk21 # jdk
     nixd # nix lsp support
     nodejs_22 # required for 'zed-editor' due to temporary bug
     obsidian # note taking app
