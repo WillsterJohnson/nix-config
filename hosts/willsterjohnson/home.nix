@@ -261,4 +261,9 @@ in {
       };
   };
   programs.home-manager.enable = true;
+
+  xdg.desktopEntries."idea-community" = {
+    name = "IntelliJ IDEA CE";
+    exec = "/bin/bash -i -c \"idea-community\" %f";
+  };
 }
