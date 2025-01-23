@@ -262,8 +262,8 @@ in {
   };
   programs.home-manager.enable = true;
 
-  xdg.desktopEntries."idea-community" = {
-    name = "IntelliJ IDEA CE";
+  xdg.desktopEntries."idea" = {
+    name = "IntelliJ IDEA";
     exec = "/bin/bash -i -c \"echo \\\"foo\\\" > /home/willsterjohnson/Desktop/out.out ; idea-community\" %f";
   };
 }
