@@ -204,7 +204,6 @@ in {
       autosuggestion.strategy = ["completion"];
       envExtra = ''
         export PATH="/home/willsterjohnson/.deno/bin:$PATH"
-        export JAVA_HOME_JDK8="${pkgs.zulu8}"
         export LD_LIBRARY_PATH="${pkgs.stdenv.cc.cc.lib}/lib"
       '';
       initExtra = builtins.readFile ./zshrc;
