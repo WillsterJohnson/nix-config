@@ -264,6 +264,6 @@ in {
 
   xdg.desktopEntries."idea-community" = {
     name = "IntelliJ IDEA CE";
-    exec = "/bin/bash -i -c \"idea-community\" %f";
+    exec = "/bin/bash -i -c \"echo \\\"foo\\\" > /home/willsterjohnson/Desktop/out.out ; idea-community\" %f";
   };
 }
