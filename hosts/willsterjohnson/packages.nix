@@ -18,7 +18,7 @@
     gnome-tweaks # gnome tweaks
     inotify-tools # fs watch and more
     jetbrains.idea-community # intellij idea community edition
-    jdk21 # jdk
+    jdk21 # jdk21
     nixd # nix lsp support
     nodejs_22 # required for 'zed-editor' due to temporary bug
     obsidian # note taking app
@@ -29,11 +29,13 @@
     shellcheck # required for shell script support in 'zed-editor'
     xorg.xprop # required for 'gnomeExtensions.unite'
     unzip # required for 'atool'
-    zulu8 # zulu
+    zulu8 # zulu8
+    zulu17 # zulu17
     inputs.zen-browser.packages.x86_64-linux.specific # zen browser
   ];
   environment.variables = {
     JAVA_HOME_JDK8 = "${pkgs.zulu8}";
+    JAVA_HOME_JDK17 = "${pkgs.jdk17}";
   };
   fonts.packages = with pkgs; [
     victor-mono
