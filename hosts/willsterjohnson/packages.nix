@@ -34,8 +34,8 @@
     inputs.zen-browser.packages.x86_64-linux.specific # zen browser
   ];
   environment.variables = {
-    JAVA_HOME_JDK8 = "${pkgs.zulu8}";
     JAVA_HOME_JDK17 = "${pkgs.zulu17}";
+    JAVA_HOME_JDK8 = "${pkgs.zulu8}";
   };
   fonts.packages = with pkgs; [
     victor-mono
