@@ -239,8 +239,6 @@ in {
     stateVersion = "24.05";
     sessionVariables = {
       EDITOR = "nano";
-      JAVA_HOME_JDK17 = "${pkgs.zulu17}";
-      JAVA_HOME_JDK8 = "${pkgs.zulu8}";
     };
     file =
       autostartFile
