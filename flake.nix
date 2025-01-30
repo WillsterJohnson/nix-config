@@ -40,8 +40,6 @@
         stylix.nixosModules.stylix
         inputs.home-manager.nixosModules.default
         inputs.nixos-hardware.nixosModules.framework-16-7040-amd
-        ./modules/fhs.nix
-        ./modules/lsb.nix
       ];
     };
   };

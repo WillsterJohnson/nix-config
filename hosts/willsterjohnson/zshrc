@@ -81,7 +81,7 @@ alias fhsflake="echo \"{\
       pkgs = nixpkgs.legacyPackages.\${system};\
       fhs = pkgs.buildFHSEnv {\
         name = \\\"fhs-shell\\\";\
-        targetPkgs = pkgs: [pkgs.gcc pkgs.libtool pkgs.nodejs-18_x] ;\
+        targetPkgs = pkgs: [];\
       };\
     in\
       {\
