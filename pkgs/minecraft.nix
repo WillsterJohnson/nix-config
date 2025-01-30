@@ -8,7 +8,7 @@
   makeWrapper,
   wrapGAppsHook3,
   gobject-introspection,
-  jre,
+  zulu8,
   xorg,
   zlib,
   nss,
@@ -141,8 +141,8 @@ in
       # Do not create `GPUCache` in current directory
       makeWrapper $out/opt/minecraft/minecraft $out/bin/minecraft \
         --prefix LD_LIBRARY_PATH : ${envLibPath} \
-        --prefix PATH : ${lib.makeBinPath [jre]} \
-        --set JAVA_HOME ${lib.getBin jre} \
+        --prefix PATH : ${lib.makeBinPath [zulu8]} \
+        --set JAVA_HOME ${lib.getBin zulu8} \
         --chdir /tmp \
         "''${gappsWrapperArgs[@]}"
     '';
