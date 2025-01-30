@@ -51,9 +51,11 @@
     flite # needed for narrator
     libXxf86vm # needed only for versions <1.13
     libGL
+    xorg.libXcursor
   ];
 
   libPath = lib.makeLibraryPath ([
+      # grep launcher_log.txt for 'java.lang.UnsatisfiedLinkError'
       alsa-lib
       atk
       cairo
