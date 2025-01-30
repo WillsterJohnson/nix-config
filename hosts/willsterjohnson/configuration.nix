@@ -26,6 +26,7 @@
   nix.settings.experimental-features = ["nix-command" "flakes"];
   nixpkgs.config = {
     allowUnfree = true;
+    allowBroken = true;
     packageOverrides = pkgs: {
       nur =
         import (builtins.fetchTarball {
