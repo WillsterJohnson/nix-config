@@ -39,7 +39,7 @@
     exec = "minecraft";
     icon = "minecraft";
     comment = "Official launcher for Minecraft, a sandbox-building game";
-    desktopName = "Minecraft Launcher";
+    desktopName = "Minecraft";
     categories = ["Game"];
   };
 
@@ -115,7 +115,9 @@ in
       runHook preInstall
 
       mkdir -p $out/opt
-      mv minecraft-launcher $out/opt
+      mv minecraft-launcher $out/opt/
+      mv $out/opt/minecraft-launcher $out/opt/minecraft
+      mv $out/opt/minecraft/minecraft-launcher $out/opt/minecraft/minecraft
 
       install -D $icon $out/share/icons/hicolor/symbolic/apps/minecraft.svg
 
@@ -126,18 +128,18 @@ in
       patchelf \
         --set-interpreter ${stdenv.cc.bintools.dynamicLinker} \
         --set-rpath '$ORIGIN/'":${libPath}" \
-        $out/opt/minecraft-launcher/minecraft-launcher
+        $out/opt/minecraft/minecraft
       patchelf \
         --set-rpath '$ORIGIN/'":${libPath}" \
-        $out/opt/minecraft-launcher/libcef.so
+        $out/opt/minecraft/libcef.so
       patchelf \
         --set-rpath '$ORIGIN/'":${libPath}" \
-        $out/opt/minecraft-launcher/liblauncher.so
+        $out/opt/minecraft/liblauncher.so
     '';
 
     postFixup = ''
       # Do not create `GPUCache` in current directory
-      makeWrapper $out/opt/minecraft-launcher/minecraft-launcher $out/bin/minecraft-launcher \
+      makeWrapper $out/opt/minecraft/minecraft $out/bin/minecraft \
         --prefix LD_LIBRARY_PATH : ${envLibPath} \
         --prefix PATH : ${lib.makeBinPath [jre]} \
         --set JAVA_HOME ${lib.getBin jre} \
