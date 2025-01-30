@@ -19,8 +19,6 @@
     inotify-tools # fs watch and more
     jetbrains.idea-community # intellij idea community edition
     jdk21 # jdk21
-    libGL # required for 'minecraft'
-    minecraft # minecraft
     nixd # nix lsp support
     nodejs_22 # required for 'zed-editor' due to temporary bug
     obsidian # note taking app
@@ -34,6 +32,8 @@
     zulu8 # zulu8
     zulu17 # zulu17
     inputs.zen-browser.packages.x86_64-linux.specific # zen browser
+
+    (pkgs.callPackage ../../pkgs/minecraft.nix {})
   ];
   environment.variables = {
     JAVA_HOME_JDK17 = "${pkgs.zulu17}";
