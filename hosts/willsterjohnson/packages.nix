@@ -19,6 +19,7 @@
     inotify-tools # fs watch and more
     jetbrains.idea-community # intellij idea community edition
     jdk21 # jdk21
+    libGL # required for 'minecraft'
     minecraft # minecraft
     nixd # nix lsp support
     nodejs_22 # required for 'zed-editor' due to temporary bug
