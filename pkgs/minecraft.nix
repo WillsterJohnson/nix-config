@@ -50,6 +50,7 @@
     alsa-lib # needed for narrator
     flite # needed for narrator
     libXxf86vm # needed only for versions <1.13
+    libGL
   ];
 
   libPath = lib.makeLibraryPath ([
@@ -65,7 +66,7 @@
       glib
       gtk3-x11
       gtk2-x11
-      libGL
+      # libGL
       libuuid
       nspr
       nss
@@ -154,10 +155,5 @@ in
       sourceProvenance = with sourceTypes; [binaryNativeCode];
       license = licenses.unfree;
       platforms = ["x86_64-linux"];
-    };
-
-    passthru = {
-      tests = {inherit (nixosTests) minecraft;};
-      updateScript = ./update.sh;
     };
   }
