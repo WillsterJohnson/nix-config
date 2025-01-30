@@ -35,9 +35,9 @@
   libXxf86vm ? null,
 }: let
   desktopItem = makeDesktopItem {
-    name = "minecraft-launcher";
-    exec = "minecraft-launcher";
-    icon = "minecraft-launcher";
+    name = "minecraft";
+    exec = "minecraft";
+    icon = "minecraft";
     comment = "Official launcher for Minecraft, a sandbox-building game";
     desktopName = "Minecraft Launcher";
     categories = ["Game"];
@@ -66,7 +66,6 @@
       glib
       gtk3-x11
       gtk2-x11
-      # libGL
       libuuid
       nspr
       nss
@@ -90,7 +89,7 @@
     ]));
 in
   stdenv.mkDerivation rec {
-    pname = "minecraft-launcher";
+    pname = "minecraft";
 
     version = "2.2.1441";
 
@@ -118,7 +117,7 @@ in
       mkdir -p $out/opt
       mv minecraft-launcher $out/opt
 
-      install -D $icon $out/share/icons/hicolor/symbolic/apps/minecraft-launcher.svg
+      install -D $icon $out/share/icons/hicolor/symbolic/apps/minecraft.svg
 
       runHook postInstall
     '';
