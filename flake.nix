@@ -29,9 +29,16 @@
     home-manager,
     stylix,
     ...
-  } @ inputs: {
+  } @ inputs: let
+    system = "x86_64-linux";
+    fhs = nixpkgs.legacyPackages.${system}.buildFHSUserEnv {
+      name = "fhs-shell";
+      targetPkgs = pkgs: [pkgs.gcc pkgs.libtool pkgs.nodejs-18_x];
+    };
+  in {
+    devShells.${system}.default = fhs.env;
     nixosConfigurations.default = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
+      system = system;
       specialArgs = {
         inherit inputs;
       };
@@ -40,8 +47,6 @@
         stylix.nixosModules.stylix
         inputs.home-manager.nixosModules.default
         inputs.nixos-hardware.nixosModules.framework-16-7040-amd
-        ./modules/fhs.nix
-        ./modules/lsb.nix
       ];
     };
   };
