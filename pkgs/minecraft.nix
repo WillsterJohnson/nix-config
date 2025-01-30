@@ -51,7 +51,18 @@
     flite # needed for narrator
     libXxf86vm # needed only for versions <1.13
     libGL
+    xorg.libX11
+    xorg.libxcb
+    xorg.libXcomposite
     xorg.libXcursor
+    xorg.libXdamage
+    xorg.libXext
+    xorg.libXfixes
+    xorg.libXi
+    xorg.libXrandr
+    xorg.libXrender
+    xorg.libXtst
+    xorg.libXScrnSaver
   ];
 
   libPath = lib.makeLibraryPath ([
