@@ -33,8 +33,7 @@
     zulu17 # zulu17
     inputs.zen-browser.packages.x86_64-linux.specific # zen browser
 
-    # (pkgs.callPackage ../../pkgs/minecraft.nix {})
-    minecraft
+    (pkgs.callPackage ../../pkgs/minecraft.nix {})
   ];
   environment.variables = {
     JAVA_HOME_JDK17 = "${pkgs.zulu17}";
