@@ -49,6 +49,7 @@
     systemd
     alsa-lib # needed for narrator
     flite # needed for narrator
+    libXxf86vm
     libGL
     xorg.libX11
     xorg.libxcb
