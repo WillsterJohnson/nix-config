@@ -101,6 +101,8 @@
     ]));
 in
   stdenv.mkDerivation rec {
+    pname = "minecraft";
+
     # fetch the url "https://launchermeta.mojang.com/v1/products/launcher/6f083b80d5e6fabbc4236f81d0d8f8a350c665a9/linux.json"
     # it returns json string, parse it
     # read the item at `."launcher-core"[0].version.name`, this is the value for the version
@@ -118,10 +120,6 @@ in
       )
       .version
       .name;
-
-    pname = builtins.trace "${version}" "minecraft";
-
-    fubar = "not allowed";
 
     src = fetchurl {
       url = "https://launcher.mojang.com/download/linux/x86_64/minecraft-launcher_${version}.tar.gz";
