@@ -107,19 +107,21 @@ in
     # it returns json string, parse it
     # read the item at `."launcher-core"[0].version.name`, this is the value for the version
     version =
-      builtins.elemAt
-      (
-        builtins.fromJSON
-        (
-          fetchurl {
-            url = "https://launchermeta.mojang.com/v1/products/launcher/6f083b80d5e6fabbc4236f81d0d8f8a350c665a9/linux.json";
-          }
-        )
-        .launcher-core
-        0
-      )
-      .version
-      .name;
+      "2.2.2141"
+      # builtins.elemAt
+      # (
+      # builtins.fromJSON
+      # (
+      # fetchurl {
+      #   url = "https://launchermeta.mojang.com/v1/products/launcher/6f083b80d5e6fabbc4236f81d0d8f8a350c665a9/linux.json";
+      # }
+      # )
+      # .launcher-core
+      # 0
+      # )
+      # .version
+      # .name
+      ;
 
     # raise an error, and include the version in the error message
     foo = throw "Minecraft version is ${version}";
