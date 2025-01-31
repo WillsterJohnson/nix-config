@@ -155,9 +155,9 @@ in
         --prefix LD_LIBRARY_PATH : ${envLibPath} \
         --prefix PATH : ${lib.makeBinPath [jre]} \
         --set JAVA_HOME ${lib.getBin jre} \
-        --chdir /tmp
+        --chdir /tmp \
+        "''${gappsWrapperArgs[@]}"
     '';
-    # "''${gappsWrapperArgs[@]}"
 
     desktopItems = [desktopItem];
 
