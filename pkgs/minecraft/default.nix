@@ -121,6 +121,9 @@ in
       .version
       .name;
 
+    # raise an error, and include the version in the error message
+    foo = throw "Minecraft version is ${version}";
+
     src = fetchurl {
       url = "https://launcher.mojang.com/download/linux/x86_64/minecraft-launcher_${version}.tar.gz";
       sha256 = "03q579hvxnsh7d00j6lmfh53rixdpf33xb5zlz7659pvb9j5w0cm";
