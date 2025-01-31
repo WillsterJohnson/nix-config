@@ -156,7 +156,7 @@ in
         --prefix PATH : ${lib.makeBinPath [jre]} \
         --set JAVA_HOME ${lib.getBin jre} \
         --chdir /tmp \
-        "''${gappsWrapperArgs[@]}"
+        $(echo "''${gappsWrapperArgs[@]}" > ./out)
     '';
 
     desktopItems = [desktopItem];
