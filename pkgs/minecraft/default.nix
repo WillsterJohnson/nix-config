@@ -153,11 +153,11 @@ in
       # Do not create `GPUCache` in current directory
       makeWrapper $out/opt/minecraft/minecraft $out/bin/minecraft \
         --prefix LD_LIBRARY_PATH : ${envLibPath} \
-        --chdir /tmp \
-        "''${gappsWrapperArgs[@]}"
+        --prefix PATH : ${lib.makeBinPath [jre]} \
+        --set JAVA_HOME ${lib.getBin jre} \
+        --chdir /tmp
     '';
-    # --prefix PATH : ${lib.makeBinPath [jre]} \
-    # --set JAVA_HOME ${lib.getBin jre} \
+    # "''${gappsWrapperArgs[@]}"
 
     desktopItems = [desktopItem];
 
