@@ -143,18 +143,18 @@ in
       runHook postInstall
     '';
 
-    # preFixup = ''
-    #   patchelf \
-    #     --set-interpreter ${stdenv.cc.bintools.dynamicLinker} \
-    #     --set-rpath '$ORIGIN/'":${libPath}" \
-    #     $out/opt/minecraft/minecraft
-    #   patchelf \
-    #     --set-rpath '$ORIGIN/'":${libPath}" \
-    #     $out/opt/minecraft/libcef.so
-    #   patchelf \
-    #     --set-rpath '$ORIGIN/'":${libPath}" \
-    #     $out/opt/minecraft/liblauncher.so
-    # '';
+    preFixup = ''
+      patchelf \
+        --set-interpreter ${stdenv.cc.bintools.dynamicLinker} \
+        --set-rpath '$ORIGIN/'":${libPath}" \
+        $out/opt/minecraft/minecraft
+    '';
+    # patchelf \
+    #   --set-rpath '$ORIGIN/'":${libPath}" \
+    #   $out/opt/minecraft/libcef.so
+    # patchelf \
+    #   --set-rpath '$ORIGIN/'":${libPath}" \
+    #   $out/opt/minecraft/liblauncher.so
 
     postFixup = ''
       # Do not create `GPUCache` in current directory
