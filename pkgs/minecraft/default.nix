@@ -152,12 +152,12 @@ in
     postFixup = ''
       # Do not create `GPUCache` in current directory
       makeWrapper $out/opt/minecraft/minecraft $out/bin/minecraft \
+        --prefix LD_LIBRARY_PATH : ${envLibPath} \
         --prefix PATH : ${lib.makeBinPath [jre]} \
         --set JAVA_HOME ${lib.getBin jre} \
         --chdir /tmp \
         "''${gappsWrapperArgs[@]}"
     '';
-    # --prefix LD_LIBRARY_PATH : ${envLibPath} \
 
     desktopItems = [desktopItem];
 
