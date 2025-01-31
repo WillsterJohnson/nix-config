@@ -99,36 +99,22 @@
       libXtst
       libXScrnSaver
     ]));
+
+  linuxJson = builtins.fromJSON (builtins.readFile (
+    fetchurl {
+      url = "https://launchermeta.mojang.com/v1/products/launcher/6f083b80d5e6fabbc4236f81d0d8f8a350c665a9/linux.json";
+      sha256 = "sha256-qqd9UEKGmxr7KpWpO74yak4BqgsgcL/5FAQiJk9yJAo=";
+    }
+  ));
 in
   stdenv.mkDerivation rec {
     pname = "minecraft";
 
-    # fetch the url "https://launchermeta.mojang.com/v1/products/launcher/6f083b80d5e6fabbc4236f81d0d8f8a350c665a9/linux.json"
-    # it returns json string, parse it
-    # read the item at `."launcher-core"[0].version.name`, this is the value for the version
-    version =
-      "2.2.2141"
-      # builtins.elemAt
-      # (
-      # builtins.fromJSON
-      # (
-      # fetchurl {
-      #   url = "https://launchermeta.mojang.com/v1/products/launcher/6f083b80d5e6fabbc4236f81d0d8f8a350c665a9/linux.json";
-      # }
-      # )
-      # .launcher-core
-      # 0
-      # )
-      # .version
-      # .name
-      ;
-
-    # raise an error, and include the version in the error message
-    foo = throw "Minecraft version is ${version}";
+    version = (builtins.elemAt linuxJson.launcher-core 0).version.name;
 
     src = fetchurl {
-      url = "https://launcher.mojang.com/download/linux/x86_64/minecraft-launcher_${version}.tar.gz";
-      sha256 = "03q579hvxnsh7d00j6lmfh53rixdpf33xb5zlz7659pvb9j5w0cm";
+      url = "https://launcher.mojang.com/download/Minecraft.tar.gz";
+      sha256 = "sha256-aVJpKBVHu7z0f+dGMwJ6Dk3cE6YQYMaGpyF+hdMU5F4=";
     };
 
     icon = fetchurl {
