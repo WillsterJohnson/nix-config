@@ -133,28 +133,20 @@ in
     installPhase = ''
       runHook preInstall
 
-      mkdir -p $out/opt
-      mv minecraft-launcher $out/opt/
-      mv $out/opt/minecraft-launcher $out/opt/minecraft
-      mv $out/opt/minecraft/minecraft-launcher $out/opt/minecraft/minecraft
+      mkdir -p $out/opt/minecraft
+      mv minecraft-launcher/minecraft-launcher $out/opt/minecraft/minecraft
 
       install -D $icon $out/share/icons/hicolor/symbolic/apps/minecraft.svg
 
       runHook postInstall
     '';
 
-    preFixup = ''
-      patchelf \
-        --set-interpreter ${stdenv.cc.bintools.dynamicLinker} \
-        --set-rpath '$ORIGIN/'":${libPath}" \
-        $out/opt/minecraft/minecraft
-    '';
-    # patchelf \
-    #   --set-rpath '$ORIGIN/'":${libPath}" \
-    #   $out/opt/minecraft/libcef.so
-    # patchelf \
-    #   --set-rpath '$ORIGIN/'":${libPath}" \
-    #   $out/opt/minecraft/liblauncher.so
+    # preFixup = ''
+    #   patchelf \
+    #     --set-interpreter ${stdenv.cc.bintools.dynamicLinker} \
+    #     --set-rpath '$ORIGIN/'":${libPath}" \
+    #     $out/opt/minecraft/minecraft
+    # '';
 
     postFixup = ''
       # Do not create `GPUCache` in current directory
