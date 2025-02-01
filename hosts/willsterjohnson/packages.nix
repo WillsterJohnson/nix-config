@@ -31,6 +31,7 @@
     unzip # required for 'atool'
     inputs.zen-browser.packages.x86_64-linux.specific # zen browser
 
+    libglvnd
     # (pkgs.callPackage ../../pkgs/minecraft/default.nix {})
     prismlauncher
   ];
