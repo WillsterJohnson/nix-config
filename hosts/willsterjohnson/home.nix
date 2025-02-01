@@ -24,7 +24,6 @@
     [
       inputs.zen-browser.packages.x86_64-linux.specific
       pkgs.discord
-      pkgs.xterm
     ]);
 in {
   # https://nix-community.github.io/home-manager/options.xhtml
