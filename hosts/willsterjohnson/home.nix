@@ -203,7 +203,7 @@ in {
       autosuggestion.strategy = ["completion"];
       envExtra = ''
         export PATH="/home/willsterjohnson/.deno/bin:$PATH"
-        export LD_LIBRARY_PATH="${pkgs.stdenv.cc.cc.lib}/lib"
+        export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:${pkgs.stdenv.cc.cc.lib}:${pkgs.libglvnd}/lib"
       '';
       initExtra = builtins.readFile ./zshrc;
       plugins = [
