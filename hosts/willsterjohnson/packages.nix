@@ -23,6 +23,7 @@
     nodejs_22 # required for 'zed-editor' due to temporary bug
     obsidian # note taking app
     pkg-config # pkg-config
+    prismlauncher # Prism launcher for Minecraft
     protontricks # protontricks
     python310 # required for terminal extension in 'obsidian' (for some reason)
     rustup # rust toolchain
@@ -31,9 +32,10 @@
     unzip # required for 'atool'
     inputs.zen-browser.packages.x86_64-linux.specific # zen browser
 
+    # TODO: sort out a proper solution
     libglvnd
+    flite
     # (pkgs.callPackage ../../pkgs/minecraft/default.nix {})
-    prismlauncher
   ];
   fonts.packages = with pkgs; [
     victor-mono
