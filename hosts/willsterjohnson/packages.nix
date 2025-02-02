@@ -31,11 +31,6 @@
     xorg.xprop # required for 'gnomeExtensions.unite'
     unzip # required for 'atool'
     inputs.zen-browser.packages.x86_64-linux.specific # zen browser
-
-    # TODO: sort out a proper solution
-    libglvnd
-    flite
-    # (pkgs.callPackage ../../pkgs/minecraft/default.nix {})
   ];
   fonts.packages = with pkgs; [
     victor-mono
