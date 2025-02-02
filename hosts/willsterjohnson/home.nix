@@ -38,6 +38,11 @@ in {
 
   programs = {
     bat.enable = true;
+    direnv = {
+      enable = true;
+      enableZshIntegration = true;
+      nix-direnv.enable = true;
+    };
     fzf = {
       enable = true;
       enableZshIntegration = true;
@@ -203,7 +208,6 @@ in {
       autosuggestion.strategy = ["completion"];
       envExtra = ''
         export PATH="/home/willsterjohnson/.deno/bin:$PATH"
-        export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:${pkgs.stdenv.cc.cc.lib}/lib:${pkgs.libglvnd}/lib:${pkgs.flite.lib}/lib"
       '';
       initExtra = builtins.readFile ./zshrc;
       plugins = [
