@@ -18,6 +18,7 @@
     gnome-tweaks # gnome tweaks
     inotify-tools # fs watch and more
     jetbrains.idea-community # intellij idea community edition
+    jetbrains.jdk # jetbrains jdk
     jdk21 # jdk21
     nixd # nix lsp support
     nodejs_22 # required for 'zed-editor' due to temporary bug
