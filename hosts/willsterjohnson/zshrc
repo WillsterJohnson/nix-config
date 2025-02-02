@@ -57,7 +57,9 @@ ls -1 $HOME/.homefiles | while read name; do
 	source "$target/$name.sh" $target
 done
 
-eval $(deno completions zsh)
+eval "$(deno completions zsh)"
+eval "$(direnv hook zsh)"
+
 
 betterdiscordctl install &>/dev/null
 betterDiscordPlugins=$HOME/.config/BetterDiscord/plugins
@@ -68,23 +70,3 @@ betterDiscordThemes=$HOME/.config/BetterDiscord/themes
 if [ -L $betterDiscordThemes ]; then unlink $betterDiscordThemes
 else rm -rf $betterDiscordThemes ;fi
 ln -s $HOME/.files/BetterDiscord/themes $betterDiscordThemes
-
-
-alias fhsflake="echo \"{\
-  inputs = {\
-    nixpkgs.url = \\\"github:NixOS/nixpkgs/nixos-unstable\\\";\
-  };\
-\
-  outputs = { self, nixpkgs }:\
-    let\
-      system = \\\"x86_64-linux\\\";\
-      pkgs = nixpkgs.legacyPackages.\${system};\
-      fhs = pkgs.buildFHSEnv {\
-        name = \\\"fhs-shell\\\";\
-        targetPkgs = pkgs: [];\
-      };\
-    in\
-      {\
-        devShells.\${system}.default = fhs.env;\
-      };\
-}\" > ./flake.nix"
