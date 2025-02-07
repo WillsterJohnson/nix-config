@@ -59,14 +59,3 @@ done
 
 eval "$(deno completions zsh)"
 eval "$(direnv hook zsh)"
-
-
-betterdiscordctl install &>/dev/null
-betterDiscordPlugins=$HOME/.config/BetterDiscord/plugins
-if [ -L $betterDiscordPlugins ]; then unlink $betterDiscordPlugins
-else rm -rf $betterDiscordPlugins ;fi
-ln -s $HOME/.files/BetterDiscord/plugins/ $betterDiscordPlugins
-betterDiscordThemes=$HOME/.config/BetterDiscord/themes
-if [ -L $betterDiscordThemes ]; then unlink $betterDiscordThemes
-else rm -rf $betterDiscordThemes ;fi
-ln -s $HOME/.files/BetterDiscord/themes $betterDiscordThemes

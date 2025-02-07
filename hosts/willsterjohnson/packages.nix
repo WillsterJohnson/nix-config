@@ -7,10 +7,8 @@
     atool # work with various files
     alejandra # format nix code
     bazecor # proprietary keyboard layout editor
-    betterdiscordctl # better discord controller
     catppuccin-cursors.mochaLavender # mouse cursor theme
     corepack_22 # pnpm support
-    discord # dicord app
     deno # typescript runtime
     eclipses.eclipse-java # eclipse ide - the worst ide ever (but it supports old java so...)
     gcc # required for rust toolchain
