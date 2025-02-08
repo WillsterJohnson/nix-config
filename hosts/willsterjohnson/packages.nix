@@ -31,6 +31,7 @@
     inputs.zen-browser.packages.x86_64-linux.specific # zen browser
   ];
   environment.variables = {
+    FOO = "beans";
     JAVA_HOME = "${pkgs.jdk21}/lib/openjdk";
   };
   fonts.packages = with pkgs; [
