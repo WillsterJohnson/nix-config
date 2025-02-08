@@ -30,6 +30,9 @@
     unzip # required for 'atool'
     inputs.zen-browser.packages.x86_64-linux.specific # zen browser
   ];
+  environment.variables = {
+    JAVA_HOME = "${pkgs.jdk21}";
+  };
   fonts.packages = with pkgs; [
     victor-mono
     (nerdfonts.override {fonts = ["Meslo"];})
