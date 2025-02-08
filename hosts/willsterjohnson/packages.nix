@@ -15,8 +15,8 @@
     gitmoji-cli # better git commit
     gnome-tweaks # gnome tweaks
     inotify-tools # fs watch and more
+    jdk21 # jdk 21
     jetbrains.idea-ultimate # intellij idea community edition
-    jetbrains.jdk # jetbrains jdk
     nixd # nix lsp support
     nodejs_22 # required for 'zed-editor' due to temporary bug
     obsidian # note taking app
