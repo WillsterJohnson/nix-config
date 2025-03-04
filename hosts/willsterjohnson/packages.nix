@@ -10,13 +10,12 @@
     catppuccin-cursors.mochaLavender # mouse cursor theme
     corepack_22 # pnpm support
     deno # typescript runtime
-    eclipses.eclipse-java # eclipse ide - the worst ide ever (but it supports old java so...)
     gcc # required for rust toolchain
     gitmoji-cli # better git commit
     gnome-tweaks # gnome tweaks
     inotify-tools # fs watch and more
     jdk21 # jdk 21
-    jetbrains.idea-ultimate # intellij idea community edition
+    jetbrains-toolbox # jetbrains toolbox
     nixd # nix lsp support
     nodejs_22 # required for 'zed-editor' due to temporary bug
     obsidian # note taking app
