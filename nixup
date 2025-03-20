@@ -57,7 +57,7 @@ bcwt=
 while [[ $# -gt 0 ]]
 do
 	case $1 in
-		--verbose) verbose="--verbose"; shift ;;
+		--verbose) verbose="--verbose --show-trace"; shift ;;
 		--format) format="--format"; shift ;;
 		--shell)
 			if [[ -n $2 ]]
@@ -104,7 +104,7 @@ else
 	hasErr=
 	prevLine=""
 	echo "NixOS Rebuilding..."
-	sudo nixos-rebuild switch --upgrade --verbose --flake "${scriptDir}#default"
+	sudo nixos-rebuild switch --upgrade $verbose --flake "${scriptDir}#default"
 	if [[ $? -ne 0 ]]
 	then exit `excho "\033[0;31mNixOS Rebuild failed\033[0m"`
 	fi

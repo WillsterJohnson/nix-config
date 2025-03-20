@@ -513,15 +513,15 @@
         "nixpkgs": "nixpkgs_4"
       },
       "locked": {
-        "lastModified": 1737114274,
-        "narHash": "sha256-4KBZkAl15BlDUWOdcNgDhMoLuj0TBDFn9r1jsIMknck=",
-        "owner": "willsterjohnson",
+        "lastModified": 1742439356,
+        "narHash": "sha256-iAQ/Ekh+YpRuVtctBB8wx6PbyJARVeWMKCiwv3vih68=",
+        "owner": "0xc000022070",
         "repo": "zen-browser-flake",
-        "rev": "4d2be7b78b368a664528a92367a4e9ca674455b8",
+        "rev": "63ef58b3e6fdf57a8449964cbeb35534dca2a5b7",
         "type": "github"
       },
       "original": {
-        "owner": "willsterjohnson",
+        "owner": "0xc000022070",
         "repo": "zen-browser-flake",
         "type": "github"
       }

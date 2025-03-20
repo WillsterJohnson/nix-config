@@ -27,7 +27,7 @@
     shellcheck # required for shell script support in 'zed-editor'
     xorg.xprop # required for 'gnomeExtensions.unite'
     unzip # required for 'atool'
-    inputs.zen-browser.packages.x86_64-linux.specific # zen browser
+    inputs.zen-browser.packages.x86_64-linux.default # zen browser
   ];
   environment.variables = {
     JAVA_HOME = "${pkgs.jdk21}/lib/openjdk";

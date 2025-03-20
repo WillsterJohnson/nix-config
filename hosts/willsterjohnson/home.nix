@@ -22,7 +22,7 @@
         };
     })
     [
-      inputs.zen-browser.packages.x86_64-linux.specific
+      # inputs.zen-browser.packages.x86_64-linux.default
     ]);
 in {
   # https://nix-community.github.io/home-manager/options.xhtml
@@ -192,7 +192,7 @@ in {
         ui_font_size = 16;
         ui_font_family = "Victor Mono";
         ui_font_weight = 500;
-        vertical_scroll_margin = 100;
+        vertical_scroll_margin = 10;
         wrap_guides = [90 100];
       };
     };
