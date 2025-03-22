@@ -16,6 +16,7 @@
     inotify-tools # fs watch and more
     jdk21 # jdk 21
     jetbrains-toolbox # jetbrains toolbox
+    libzip # libzip
     nixd # nix lsp support
     nodejs_22 # required for 'zed-editor' due to temporary bug
     obsidian # note taking app
@@ -25,6 +26,7 @@
     python310 # required for terminal extension in 'obsidian' (for some reason)
     rustup # rust toolchain
     shellcheck # required for shell script support in 'zed-editor'
+    stdenv.cc.cc.lib # libstdc++
     xorg.xprop # required for 'gnomeExtensions.unite'
     unzip # required for 'atool'
     inputs.zen-browser.packages.x86_64-linux.default # zen browser

@@ -513,16 +513,16 @@
         "nixpkgs": "nixpkgs_4"
       },
       "locked": {
-        "lastModified": 1742439356,
-        "narHash": "sha256-iAQ/Ekh+YpRuVtctBB8wx6PbyJARVeWMKCiwv3vih68=",
-        "owner": "0xc000022070",
-        "repo": "zen-browser-flake",
-        "rev": "63ef58b3e6fdf57a8449964cbeb35534dca2a5b7",
+        "lastModified": 1742452861,
+        "narHash": "sha256-14I9+Q7RIMRNw7KfMWEeIKWum5neGul1tYtJyedEh8A=",
+        "owner": "WillsterJohnson",
+        "repo": "zen-browser-flake-1",
+        "rev": "1a55fe28da368ef6ce9692b2214b199fb8ef85d4",
         "type": "github"
       },
       "original": {
-        "owner": "0xc000022070",
-        "repo": "zen-browser-flake",
+        "owner": "WillsterJohnson",
+        "repo": "zen-browser-flake-1",
         "type": "github"
       }
     }
