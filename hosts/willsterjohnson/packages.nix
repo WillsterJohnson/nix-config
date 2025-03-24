@@ -19,6 +19,7 @@
     libzip # libzip
     nixd # nix lsp support
     nodejs_22 # required for 'zed-editor' due to temporary bug
+    obs-studio # screen recording & streaming
     obsidian # note taking app
     pkg-config # pkg-config
     prismlauncher # Prism launcher for Minecraft
