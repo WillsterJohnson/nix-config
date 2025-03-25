@@ -49,6 +49,16 @@
     pulse.enable = true;
     jack.enable = true;
     wireplumber = {
+      extraConfig = {
+        "override.monitor.bluez.properties" = {
+          "bluez5.enable-msbc" = false;
+          "bluez5.hfphsp-backend" = "none";
+          "bluez5.roles" = [
+            "a2dp_sink"
+            "a2dp_source"
+          ];
+        };
+      };
       configPackages = [
         (pkgs.writeTextDir "share/wireplumber/wireplumber.conf.d/11-bluetooth-policy.conf" ''
           wireplumber.settings = { bluetooth.autoswitch-to-headset-profile = false }
