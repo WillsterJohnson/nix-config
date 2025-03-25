@@ -94,25 +94,30 @@ runHourly "nid-collect-garbage.pid" "Nix garbage collection ($olderThan)" "sudo 
 
 # Run nixos-rebuild
 # Ignore clean working tree
-if [[ -z "$bcwt" ]] && [[ -z `git status --porcelain` ]]
-then
-	echo "Working tree is clean - nothing to build!"
-	echo "Use --bcwt to build anyway"
-else
-	logfile=`abspathrel "nixos-switch.log"`
-	lineNumber=0
-	hasErr=
-	prevLine=""
-	echo "NixOS Rebuilding..."
-	sudo nixos-rebuild switch --upgrade $verbose --flake "${scriptDir}#default"
-	if [[ $? -ne 0 ]]
-	then exit `excho "\033[0;31mNixOS Rebuild failed\033[0m"`
+function rebuild() {
+	if [[ -z "$bcwt" ]] && [[ -z `git status --porcelain` ]]
+	then
+		echo "Working tree is clean - nothing to build!"
+		echo "Use --bcwt to build anyway"
+	else
+		logfile=`abspathrel "nixos-switch.log"`
+		lineNumber=0
+		hasErr=
+		prevLine=""
+		echo "NixOS Rebuilding..."
+		sudo nixos-rebuild switch --upgrade $verbose --flake "${scriptDir}#default"
+		if [[ $? -ne 0 ]]
+		then if [[ $1 -ne 0 ]]
+			then exit `excho "\033[0;31mNixOS Rebuild failed\033[0m"`
+			else rebuild 1
+			fi
+		fi
+		if [[ -n "$hasErr" ]]
+		then echo -e "\033[0;33m[log #$lineNumber]: non-fatal error(s)\033[0m" >&2
+		fi
+		echo "NixOS Rebuild completed successfully"
 	fi
-	if [[ -n "$hasErr" ]]
-	then echo -e "\033[0;33m[log #$lineNumber]: non-fatal error(s)\033[0m" >&2
-	fi
-	echo "NixOS Rebuild completed successfully"
-fi
+}
 
 # Commit changes
 git commit -m "`nixos-rebuild list-generations | grep current`"
