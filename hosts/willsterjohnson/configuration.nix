@@ -60,11 +60,6 @@
           ];
         };
       };
-      configPackages = [
-        (pkgs.writeTextDir "share/wireplumber/wireplumber.conf.d/11-bluetooth-policy.conf" ''
-          wireplumber.settings = { bluetooth.autoswitch-to-headset-profile = false }
-        '')
-      ];
     };
   };
   security.rtkit.enable = true;

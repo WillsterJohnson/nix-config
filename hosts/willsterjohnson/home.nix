@@ -260,6 +260,125 @@ in {
           target = ".fonts";
           source = ./.fonts;
         };
+        disablehandsfree = {
+          target = ".config/pipewire/pipewire.conf.d/99-disable-handsfree.conf";
+          source = ''
+            context.modules = [
+              {
+                name = libpipewire-module-adapter
+                  args = {
+                    factory = adapter
+                    name = "filter.sco-source"
+                    target = "bluez_input.*"
+                    direction = in
+                    flags = [ "dont-remix" ]
+                    filter.graph = {
+                    nodes = [
+                      {
+                        type = "filter"
+                        name = "format-converter"
+                        rate = 48000
+                        format = "S16LE"
+                      }
+                    ]
+                    links = [
+                      { output = "format-converter:input" }
+                    ]
+                  }
+                  capture.props = {
+                  audio.format = "S16LE"
+                  audio.rate = 48000
+                  audio.channels = 1
+                  }
+                }
+              }
+              {
+                name = libpipewire-module-adapter
+                  args = {
+                    factory = adapter
+                    name = "filter.sco-sink"
+                    target = "bluez_input.*"
+                    direction = out
+                    flags = [ "dont-remix" ]
+                    filter.graph = {
+                    nodes = [
+                      {
+                        type = "filter"
+                        name = "format-converter"
+                        rate = 48000
+                        format = "S16LE"
+                      }
+                    ]
+                    links = [
+                      { input = "format-converter:output" }
+                    ]
+                  }
+                  capture.props = {
+                  audio.format = "S16LE"
+                  audio.rate = 48000
+                  audio.channels = 1
+                  }
+                }
+              }
+              {
+                name = libpipewire-module-adapter
+                  args = {
+                    factory = adapter
+                    name = "filter.msbc-source"
+                    target = "bluez_input.*"
+                    direction = in
+                    flags = [ "dont-remix" ]
+                    filter.graph = {
+                    nodes = [
+                      {
+                        type = "filter"
+                        name = "format-converter"
+                        rate = 48000
+                        format = "S16LE"
+                      }
+                    ]
+                    links = [
+                      { output = "format-converter:input" }
+                    ]
+                  }
+                  capture.props = {
+                  audio.format = "S16LE"
+                  audio.rate = 48000
+                  audio.channels = 1
+                  }
+                }
+              }
+              {
+                name = libpipewire-module-adapter
+                  args = {
+                    factory = adapter
+                    name = "filter.msbc-sink"
+                    target = "bluez_input.*"
+                    direction = out
+                    flags = [ "dont-remix" ]
+                    filter.graph = {
+                    nodes = [
+                      {
+                        type = "filter"
+                        name = "format-converter"
+                        rate = 48000
+                        format = "S16LE"
+                      }
+                    ]
+                    links = [
+                      { input = "format-converter:output" }
+                    ]
+                  }
+                  capture.props = {
+                  audio.format = "S16LE"
+                  audio.rate = 48000
+                  audio.channels = 1
+                  }
+                }
+              }
+            ]
+          '';
+        };
       };
   };
   programs.home-manager.enable = true;
