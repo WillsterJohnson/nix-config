@@ -8,6 +8,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
   console.keyMap = "uk";
   hardware.keyboard.qmk.enable = true;
+  hardware.bluetooth.enable = true;
   hardware.pulseaudio.enable = false;
   i18n.defaultLocale = "en_GB.UTF-8";
   i18n.extraLocaleSettings = {
