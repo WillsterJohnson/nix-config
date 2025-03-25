@@ -53,6 +53,7 @@
       extraConfig = {
         "override.monitor.bluez.properties" = {
           "bluez5.enable-msbc" = false;
+          "bluez5.enable-soc" = false;
           "bluez5.hfphsp-backend" = "none";
           "bluez5.roles" = [
             "a2dp_sink"
