@@ -50,7 +50,10 @@
     pulse.enable = true;
     jack.enable = true;
     wireplumber = {
-      extraConfig = {
+      willsters-rage-at-handsfree-knows-no-rational-bounds = {
+        "monitor.bluez.properties" = {
+          "override.bluez5.roles" = ["a2dp_sink" "a2dp_source" "bap_sink" "bap_source" "hsp_hs" "hsp_ag" "hfp_ag"];
+        };
         "override.monitor.bluez.properties" = {
           "bluez5.enable-msbc" = false;
           "bluez5.enable-soc" = false;
