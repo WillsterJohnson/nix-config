@@ -53,7 +53,7 @@
       extraConfig = {
         willsters-rage-at-handsfree-knows-no-rational-bounds = {
           "monitor.bluez.properties" = {
-            "override.bluez5.roles" = ["a2dp_sink" "a2dp_source" "bap_sink" "bap_source" "hsp_hs" "hsp_ag" "hfp_ag"];
+            "override.bluez5.roles" = ["a2dp_sink" "a2dp_source"];
           };
         };
         "override.monitor.bluez.properties" = {
