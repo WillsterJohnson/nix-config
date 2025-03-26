@@ -118,6 +118,7 @@ function rebuild() {
 		echo "NixOS Rebuild completed successfully"
 	fi
 }
+rebuild
 
 # Commit changes
 git commit -m "`nixos-rebuild list-generations | grep current`"
