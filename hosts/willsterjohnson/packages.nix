@@ -9,6 +9,7 @@
     bazecor # proprietary keyboard layout editor
     catppuccin-cursors.mochaLavender # mouse cursor theme
     corepack_22 # pnpm support
+    # davinci-resolve # davinci resolve video editor
     deno # typescript runtime
     gcc # required for rust toolchain
     gitmoji-cli # better git commit
