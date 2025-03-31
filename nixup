@@ -118,6 +118,7 @@ function rebuild() {
 		echo "NixOS Rebuild completed successfully"
 	fi
 }
+nix flake update
 rebuild
 
 # Commit changes

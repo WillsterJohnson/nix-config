@@ -106,8 +106,6 @@ in {
         };
         autosave = "on_focus_change";
         buffer_font_family = "Victor Mono";
-        buffer_font_size = 16;
-        buffer_font_weight = 500;
         code_actions_on_format = {
           "source.organizeImports" = true;
         };
@@ -164,15 +162,6 @@ in {
             ];
           };
         };
-        # lsp = {
-        #   deno = {
-        #     settings = {
-        #       deno = {
-        #         enable = true;
-        #       };
-        #     };
-        #   };
-        # };
         preferred_line_length = 100;
         show_whitespaces = "boundary";
         tab_size = 4;
@@ -184,14 +173,6 @@ in {
             program = "zsh";
           };
         };
-        theme = {
-          mode = "system";
-          light = "One Light";
-          dark = "Catppuccin Mocha";
-        };
-        ui_font_size = 16;
-        ui_font_family = "Victor Mono";
-        ui_font_weight = 500;
         vertical_scroll_margin = 10;
         wrap_guides = [90 100];
       };
@@ -245,11 +226,11 @@ in {
     file =
       autostartFile
       // {
-        files = {
-          recursive = true;
-          target = ".files";
-          source = ./.files;
-        };
+        # files = {
+        #   recursive = true;
+        #   target = ".files";
+        #   source = ./.files;
+        # };
         homefiles = {
           recursive = true;
           target = ".homefiles";

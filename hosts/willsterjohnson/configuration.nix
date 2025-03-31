@@ -9,7 +9,6 @@
   console.keyMap = "uk";
   hardware.keyboard.qmk.enable = true;
   hardware.bluetooth.enable = true;
-  hardware.pulseaudio.enable = false;
   i18n.defaultLocale = "en_GB.UTF-8";
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "en_GB.UTF-8";
@@ -41,7 +40,6 @@
   programs.steam.enable = true;
   services.fwupd.enable = true;
   services.gnome.gnome-browser-connector.enable = true;
-  services.printing.enable = true;
   services.pipewire = {
     enable = true;
     audio.enable = true;
@@ -68,6 +66,8 @@
       };
     };
   };
+  services.printing.enable = true;
+  services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.xserver.enable = true;
   services.xserver.displayManager.gdm.enable = true;
@@ -90,8 +90,8 @@
     };
     fonts = {
       monospace = {
-        package = with pkgs; (nerdfonts.override {fonts = ["Meslo"];});
-        name = "Meslo Nerd Font";
+        package = pkgs.victor-mono;
+        name = "Victor Mono";
       };
       sansSerif = {
         package = pkgs.dejavu_fonts;

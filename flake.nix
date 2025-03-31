@@ -19,8 +19,7 @@
       url = "github:NixOS/nixos-hardware/master";
     };
     stylix.url = "github:danth/stylix";
-    # zen-browser.url = "github:0xc000022070/zen-browser-flake";
-    zen-browser.url = "github:WillsterJohnson/zen-browser-flake-1";
+    zen-browser.url = "github:0xc000022070/zen-browser-flake";
     nixos-fhs-compat.url = "github:willsterjohnson/nixos-fhs-compat";
   };
 

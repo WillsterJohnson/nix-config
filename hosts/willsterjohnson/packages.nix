@@ -38,6 +38,5 @@
   };
   fonts.packages = with pkgs; [
     victor-mono
-    (nerdfonts.override {fonts = ["Meslo"];})
   ];
 }
