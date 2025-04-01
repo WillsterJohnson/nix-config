@@ -77,6 +77,11 @@
     layout = "gb";
     variant = "";
   };
+  services.xserver.videoDrivers = [
+    "amdgpu"
+    "modesetting"
+    "fbdev"
+  ];
   services.openssh.enable = true;
   # todo: cursors don't work correctly - on rebuild the cursor icons are not set correctly
   stylix = {
