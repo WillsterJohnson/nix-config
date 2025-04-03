@@ -21,6 +21,7 @@
     nixd # nix lsp support
     nodejs_22 # required for 'zed-editor' due to temporary bug
     obs-studio # screen recording & streaming
+    obs-studio-plugins.obs-backgroundremoval # background removal plugin
     obsidian # note taking app
     pkg-config # pkg-config
     prismlauncher # Prism launcher for Minecraft
