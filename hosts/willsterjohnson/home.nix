@@ -85,8 +85,8 @@ in {
       enable = true;
       extensions = [
         "catppuccin"
+        "catppuccin-icons"
         "csv"
-        # "deno"
         "emmet"
         "html"
         "nix"
@@ -97,84 +97,61 @@ in {
         "toml"
       ];
       userSettings = {
-        assistant = {
-          default_model = {
-            provider = "copilot_chat";
-            model = "gpt-4o";
+        autosave = {
+          after_delay = {
+            milliseconds = 500;
           };
-          version = "2";
         };
-        autosave = "on_focus_change";
+        restore_on_startup = "last_session";
+        auto_update = false;
+        base_keymap = "VSCode";
         buffer_font_family = "Victor Mono";
-        code_actions_on_format = {
-          "source.organizeImports" = true;
+        buffer_font_features = {
+          ss01 = false;
+          ss02 = false;
+          ss03 = false;
+          ss04 = false;
+          ss05 = true;
+          ss06 = true;
         };
-        copy_on_select = true;
-        current_line_highlight = "gutter";
-        experimental.theme_overrides = {
-          syntax = {
-            # https://gist.github.com/WillsterJohnson/13d6e60f59842188cd756c839a93acd0
-            # https://github.com/catppuccin/zed/blob/main/zed.tera
-            constant = {
-              color = "#F38BA8";
+        format_on_save = "on";
+
+        icon_theme = {
+          mode = "system";
+          dark = "Catppuccin Mocha";
+          light = "Catppuccin Mocha";
+        };
+        languages = {
+          JavaScript = {
+            code_actions_on_format = {
+              "source.organizeImports" = true;
+            };
+            formatter = {
+              external = {
+                command = "prettier";
+                arguments = ["--stdin-filepath" "{buffer_path}"];
+              };
+            };
+          };
+          Svelte = {
+            formatter = {
+              external = {
+                command = "prettier";
+                arguments = ["--stdin-filepath" "{buffer_path}"];
+              };
+            };
+          };
+          TypeScript = {
+            code_actions_on_format = {
+              "source.organizeImports" = true;
             };
           };
         };
-        formatter = "language_server";
-        file_scan_exclusions = [
-          "**/.git"
-          "**/.svn"
-          "**/.hg"
-          "**/CVS"
-          "**/.DS_Store"
-          "**/Thumbs.db"
-          "**/.classpath"
-          "**/.settings"
-          "**/node_modules"
-          "**/.turbo"
-        ];
-        file_types = {
-          JSONC = ["deno.json"];
-        };
-        format_on_save = "on";
-        hard_tabs = true;
-        inlay_hints = {
-          enabled = true;
-          show_type_hints = false;
-          show_parameter_hints = false;
-          show_other_hints = false;
-        };
-        languages = {
-          TypeScript = {
-            language_servers = [
-              #"deno"
-              "typescript-language-server"
-              "!vtsls"
-              "!eslint"
-            ];
-          };
-          TSX = {
-            language_servers = [
-              #"deno"
-              "typescript-language-server"
-              "!vtsls"
-              "!eslint"
-            ];
-          };
-        };
-        preferred_line_length = 100;
-        show_whitespaces = "boundary";
-        tab_size = 4;
-        tabs = {
-          git_status = true;
-        };
-        terminal = {
-          shell = {
-            program = "zsh";
-          };
-        };
-        vertical_scroll_margin = 10;
-        wrap_guides = [90 100];
+        preferred_line_length = 120;
+        show_edit_predictions = true;
+        show_whitespaces = "all";
+        theme = "Base16 Catppuccin Mocha";
+        wrap_guides = [100 120];
       };
     };
     zoxide = {

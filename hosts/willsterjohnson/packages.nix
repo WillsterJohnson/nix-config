@@ -19,10 +19,9 @@
     jetbrains-toolbox # jetbrains toolbox
     libzip # libzip
     nixd # nix lsp support
-    nodejs_22 # required for 'zed-editor' due to temporary bug
-    # obs-studio # screen recording & streaming
-    # obs-studio-plugins.obs-backgroundremoval # background removal plugin
+    nodejs_22 # node
     (pkgs.wrapOBS {
+      # screen recording & streaming
       plugins = with pkgs.obs-studio-plugins; [
         obs-backgroundremoval
       ];
