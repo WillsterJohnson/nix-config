@@ -24,6 +24,7 @@
       # screen recording & streaming
       plugins = with pkgs.obs-studio-plugins; [
         obs-backgroundremoval
+        droidcam-obs
       ];
     })
     obsidian # note taking app
