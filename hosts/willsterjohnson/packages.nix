@@ -11,6 +11,7 @@
     corepack_22 # pnpm support
     # davinci-resolve # davinci resolve video editor
     deno # typescript runtime
+    droidcam # phone as webcam
     gcc # required for rust toolchain
     gitmoji-cli # better git commit
     gnome-tweaks # gnome tweaks
