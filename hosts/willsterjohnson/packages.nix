@@ -38,6 +38,7 @@
     stdenv.cc.cc.lib # libstdc++
     xorg.xprop # required for 'gnomeExtensions.unite'
     unzip # required for 'atool'
+    vscode # vscode
     inputs.zen-browser.packages.x86_64-linux.default # zen browser
   ];
   environment.variables = {
